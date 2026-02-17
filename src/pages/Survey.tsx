@@ -751,6 +751,7 @@ function Survey() {
           <Textarea
             value={q10}
             onChange={(e) => setq10((e as any).target.value)}
+            className="border-0 border-b-2 shadow-none rounded-none"
           />
         </div>
       </CardContent>
