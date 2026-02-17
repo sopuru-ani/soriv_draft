@@ -8,7 +8,7 @@ function AppRoutes() {
     <>
       <Routes>
         <Route>
-          <Route path={"/home"} element={<Home />}></Route>
+          <Route path={"/"} element={<Home />}></Route>
           <Route path={"/about"} element={<About />}></Route>
           <Route path={"/survey"} element={<Survey />}></Route>
         </Route>
