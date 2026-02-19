@@ -5,6 +5,7 @@ function Home() {
     <>
       <h1>Home page</h1>
       <Link to={"/survey"}>Survey Button</Link>
+      <Link to={"/about"}>About</Link>
     </>
   );
 }

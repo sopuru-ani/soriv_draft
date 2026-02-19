@@ -117,7 +117,7 @@ function Survey() {
       <CardFooter>
         <div className="relative w-full h-fit">
           <div
-            className="float-right p-2 rounded-full border cursor-pointer"
+            className="float-right p-2 rounded-full border cursor-pointer hover:bg-accent"
             onClick={nextNav}
           >
             <ChevronRight className="w-6 h-6" />
@@ -233,13 +233,13 @@ function Survey() {
       <CardFooter>
         <div className="relative w-full h-fit">
           <div
-            className="float-left p-2 rounded-full border cursor-pointer"
+            className="float-left p-2 rounded-full border cursor-pointer hover:bg-accent"
             onClick={prevNav}
           >
             <ChevronLeft className="w-6 h-6" />
           </div>
           <div
-            className="float-right p-2 rounded-full border cursor-pointer"
+            className="float-right p-2 rounded-full border cursor-pointer hover:bg-accent"
             onClick={nextNav}
           >
             <ChevronRight className="w-6 h-6" />
@@ -312,13 +312,13 @@ function Survey() {
       <CardFooter>
         <div className="relative w-full h-fit">
           <div
-            className="float-left p-2 rounded-full border cursor-pointer"
+            className="float-left p-2 rounded-full border cursor-pointer hover:bg-accent"
             onClick={prevNav}
           >
             <ChevronLeft className="w-6 h-6" />
           </div>
           <div
-            className="float-right p-2 rounded-full border cursor-pointer"
+            className="float-right p-2 rounded-full border cursor-pointer hover:bg-accent"
             onClick={nextNav}
           >
             <ChevronRight className="w-6 h-6" />
@@ -400,13 +400,13 @@ function Survey() {
       <CardFooter>
         <div className="relative w-full h-fit">
           <div
-            className="float-left p-2 rounded-full border cursor-pointer"
+            className="float-left p-2 rounded-full border cursor-pointer hover:bg-accent"
             onClick={prevNav}
           >
             <ChevronLeft className="w-6 h-6" />
           </div>
           <div
-            className="float-right p-2 rounded-full border cursor-pointer"
+            className="float-right p-2 rounded-full border cursor-pointer hover:bg-accent"
             onClick={nextNav}
           >
             <ChevronRight className="w-6 h-6" />
@@ -455,13 +455,13 @@ function Survey() {
       <CardFooter>
         <div className="relative w-full h-fit">
           <div
-            className="float-left p-2 rounded-full border cursor-pointer"
+            className="float-left p-2 rounded-full border cursor-pointer hover:bg-accent"
             onClick={prevNav}
           >
             <ChevronLeft className="w-6 h-6" />
           </div>
           <div
-            className="float-right p-2 rounded-full border cursor-pointer"
+            className="float-right p-2 rounded-full border cursor-pointer hover:bg-accent"
             onClick={nextNav}
           >
             <ChevronRight className="w-6 h-6" />
@@ -512,13 +512,13 @@ function Survey() {
       <CardFooter>
         <div className="relative w-full h-fit">
           <div
-            className="float-left p-2 rounded-full border cursor-pointer"
+            className="float-left p-2 rounded-full border cursor-pointer hover:bg-accent"
             onClick={prevNav}
           >
             <ChevronLeft className="w-6 h-6" />
           </div>
           <div
-            className="float-right p-2 rounded-full border cursor-pointer"
+            className="float-right p-2 rounded-full border cursor-pointer hover:bg-accent"
             onClick={nextNav}
           >
             <ChevronRight className="w-6 h-6" />
@@ -561,13 +561,13 @@ function Survey() {
       <CardFooter>
         <div className="relative w-full h-fit">
           <div
-            className="float-left p-2 rounded-full border cursor-pointer"
+            className="float-left p-2 rounded-full border cursor-pointer hover:bg-accent"
             onClick={prevNav}
           >
             <ChevronLeft className="w-6 h-6" />
           </div>
           <div
-            className="float-right p-2 rounded-full border cursor-pointer"
+            className="float-right p-2 rounded-full border cursor-pointer hover:bg-accent"
             onClick={nextNav}
           >
             <ChevronRight className="w-6 h-6" />
@@ -642,13 +642,13 @@ function Survey() {
       <CardFooter>
         <div className="relative w-full h-fit">
           <div
-            className="float-left p-2 rounded-full border cursor-pointer"
+            className="float-left p-2 rounded-full border cursor-pointer hover:bg-accent"
             onClick={prevNav}
           >
             <ChevronLeft className="w-6 h-6" />
           </div>
           <div
-            className="float-right p-2 rounded-full border cursor-pointer"
+            className="float-right p-2 rounded-full border cursor-pointer hover:bg-accent"
             onClick={nextNav}
           >
             <ChevronRight className="w-6 h-6" />
@@ -724,13 +724,13 @@ function Survey() {
       <CardFooter>
         <div className="relative w-full h-fit">
           <div
-            className="float-left p-2 rounded-full border cursor-pointer"
+            className="float-left p-2 rounded-full border cursor-pointer hover:bg-accent"
             onClick={prevNav}
           >
             <ChevronLeft className="w-6 h-6" />
           </div>
           <div
-            className="float-right p-2 rounded-full border cursor-pointer"
+            className="float-right p-2 rounded-full border cursor-pointer hover:bg-accent"
             onClick={nextNav}
           >
             <ChevronRight className="w-6 h-6" />
@@ -758,7 +758,7 @@ function Survey() {
       <CardFooter>
         <div className="relative w-full h-fit">
           <div
-            className="float-left p-2 rounded-full border cursor-pointer"
+            className="float-left p-2 rounded-full border cursor-pointer hover:bg-accent"
             onClick={prevNav}
           >
             <ChevronLeft className="w-6 h-6" />
