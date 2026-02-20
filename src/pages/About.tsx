@@ -1,7 +1,7 @@
 function About() {
   return (
     <main className="relative overflow-hidden bg-background px-4 pb-20 pt-10 md:px-8 md:pt-16">
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-60 bg-gradient-to-b from-app-blue-light/25 to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-60 bg-linear-to-b from-app-blue-light/25 to-transparent" />
 
       <div className="mx-auto max-w-6xl">
         <header className="max-w-4xl">
@@ -24,7 +24,7 @@ function About() {
               <img
                 src="/THE_OPIOID_EPIDEMIC.jpg"
                 alt="Opioid awareness campaign visual"
-                className="aspect-[4/3] w-full rounded-2xl object-cover shadow-[0_14px_40px_-30px_var(--color-app-blue-dark)]"
+                className="aspect-4/3 w-full rounded-2xl object-cover shadow-[0_14px_40px_-30px_var(--color-app-blue-dark)]"
               />
             </div>
             <article className="md:col-span-7">
@@ -89,7 +89,7 @@ function About() {
               <img
                 src="/hands.jpeg"
                 alt="Students and community collaboration"
-                className="aspect-[4/3] w-full rounded-2xl object-cover shadow-[0_14px_40px_-30px_var(--color-app-blue-dark)]"
+                className="aspect-4/3 w-full rounded-2xl object-cover shadow-[0_14px_40px_-30px_var(--color-app-blue-dark)]"
               />
             </div>
           </div>
@@ -101,7 +101,7 @@ function About() {
               <img
                 src="/opportunity.jpg"
                 alt="Counseling students opportunities"
-                className="aspect-[4/3] w-full rounded-2xl object-cover shadow-[0_14px_40px_-30px_var(--color-app-blue-dark)]"
+                className="aspect-4/3 w-full rounded-2xl object-cover shadow-[0_14px_40px_-30px_var(--color-app-blue-dark)]"
               />
             </div>
             <article className="md:col-span-7">
@@ -167,7 +167,7 @@ function About() {
               <img
                 src="/impact.jpg"
                 alt="Community impact and outreach"
-                className="aspect-[4/3] w-full rounded-2xl object-cover shadow-[0_14px_40px_-30px_var(--color-app-blue-dark)]"
+                className="aspect-4/3 w-full rounded-2xl object-cover shadow-[0_14px_40px_-30px_var(--color-app-blue-dark)]"
               />
             </div>
           </div>

@@ -13,13 +13,21 @@ import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Textarea } from "@/components/ui/textarea";
+import { Progress } from "@/components/ui/progress";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 function Survey() {
   const [nav, setNav] = useState<number>(1);
   const totalPages = 10;
-  const nextNav = () => setNav((n) => Math.min(totalPages, n + 1));
+  const [progress, setProgress] = useState<number>(0);
+  const nextNav = () => {
+    (setNav((n) => Math.min(totalPages, n + 1)), setProgress(nav * 10));
+  };
   const prevNav = () => setNav((n) => Math.max(1, n - 1));
+  const cardClassName =
+    "w-full max-w-240 border-app-blue/25 bg-background/95 shadow-[0_10px_24px_-20px_var(--color-app-blue-dark)] backdrop-blur-sm";
+  const navButtonClassName =
+    "rounded-full border border-app-blue p-2 text-white bg-app-blue transition-all duration-200 cursor-pointer hover:bg-app-blue-dark";
 
   const [q1, setq1] = useState("Prefer not to say");
   const [q2, setq2] = useState("Prefer not to say");
@@ -77,11 +85,17 @@ function Survey() {
   };
 
   const pages = [
-    <Card key={1} className="w-full max-w-240">
+    <Card key={1} className={cardClassName}>
       <CardHeader>
-        <CardTitle>Survey</CardTitle>
-        <CardDescription>Question 1</CardDescription>
-        <CardAction>1 / 10</CardAction>
+        <CardTitle className="text-2xl font-semibold text-gray-900">
+          Survey
+        </CardTitle>
+        <CardDescription className="text-base text-gray-500">
+          Question 1
+        </CardDescription>
+        <CardAction className="text-gray-500 dark:text-gray-300">
+          1 / 10
+        </CardAction>
       </CardHeader>
       <CardContent>
         <div className="flex flex-col gap-2">
@@ -117,7 +131,7 @@ function Survey() {
       <CardFooter>
         <div className="relative w-full h-fit">
           <div
-            className="float-right p-2 rounded-full border cursor-pointer hover:bg-accent"
+            className={`float-right ${navButtonClassName}`}
             onClick={nextNav}
           >
             <ChevronRight className="w-6 h-6" />
@@ -126,11 +140,17 @@ function Survey() {
       </CardFooter>
     </Card>,
 
-    <Card key={2} className="w-full max-w-240">
+    <Card key={2} className={cardClassName}>
       <CardHeader>
-        <CardTitle>Survey</CardTitle>
-        <CardDescription>Question 2</CardDescription>
-        <CardAction>2 / 10</CardAction>
+        <CardTitle className="text-2xl font-semibold text-gray-900">
+          Survey
+        </CardTitle>
+        <CardDescription className="text-base text-gray-500">
+          Question 2
+        </CardDescription>
+        <CardAction className="text-gray-500 dark:text-gray-300">
+          2 / 10
+        </CardAction>
       </CardHeader>
       <CardContent>
         <div className="flex flex-col gap-2">
@@ -232,14 +252,11 @@ function Survey() {
       </CardContent>
       <CardFooter>
         <div className="relative w-full h-fit">
-          <div
-            className="float-left p-2 rounded-full border cursor-pointer hover:bg-accent"
-            onClick={prevNav}
-          >
+          <div className={`float-left ${navButtonClassName}`} onClick={prevNav}>
             <ChevronLeft className="w-6 h-6" />
           </div>
           <div
-            className="float-right p-2 rounded-full border cursor-pointer hover:bg-accent"
+            className={`float-right ${navButtonClassName}`}
             onClick={nextNav}
           >
             <ChevronRight className="w-6 h-6" />
@@ -248,11 +265,17 @@ function Survey() {
       </CardFooter>
     </Card>,
 
-    <Card key={3} className="w-full max-w-240">
+    <Card key={3} className={cardClassName}>
       <CardHeader>
-        <CardTitle>Survey</CardTitle>
-        <CardDescription>Question 3</CardDescription>
-        <CardAction>3 / 10</CardAction>
+        <CardTitle className="text-2xl font-semibold text-gray-900">
+          Survey
+        </CardTitle>
+        <CardDescription className="text-base text-gray-500">
+          Question 3
+        </CardDescription>
+        <CardAction className="text-gray-500 dark:text-gray-300">
+          3 / 10
+        </CardAction>
       </CardHeader>
       <CardContent>
         <div className="flex flex-col gap-2">
@@ -311,14 +334,11 @@ function Survey() {
       </CardContent>
       <CardFooter>
         <div className="relative w-full h-fit">
-          <div
-            className="float-left p-2 rounded-full border cursor-pointer hover:bg-accent"
-            onClick={prevNav}
-          >
+          <div className={`float-left ${navButtonClassName}`} onClick={prevNav}>
             <ChevronLeft className="w-6 h-6" />
           </div>
           <div
-            className="float-right p-2 rounded-full border cursor-pointer hover:bg-accent"
+            className={`float-right ${navButtonClassName}`}
             onClick={nextNav}
           >
             <ChevronRight className="w-6 h-6" />
@@ -327,11 +347,17 @@ function Survey() {
       </CardFooter>
     </Card>,
 
-    <Card key={4} className="w-full max-w-240">
+    <Card key={4} className={cardClassName}>
       <CardHeader>
-        <CardTitle>Survey</CardTitle>
-        <CardDescription>Question 4</CardDescription>
-        <CardAction>4 / 10</CardAction>
+        <CardTitle className="text-2xl font-semibold text-gray-900">
+          Survey
+        </CardTitle>
+        <CardDescription className="text-base text-gray-500">
+          Question 4
+        </CardDescription>
+        <CardAction className="text-gray-500 dark:text-gray-300">
+          4 / 10
+        </CardAction>
       </CardHeader>
       <CardContent>
         <div className="flex flex-col gap-2">
@@ -399,14 +425,11 @@ function Survey() {
       </CardContent>
       <CardFooter>
         <div className="relative w-full h-fit">
-          <div
-            className="float-left p-2 rounded-full border cursor-pointer hover:bg-accent"
-            onClick={prevNav}
-          >
+          <div className={`float-left ${navButtonClassName}`} onClick={prevNav}>
             <ChevronLeft className="w-6 h-6" />
           </div>
           <div
-            className="float-right p-2 rounded-full border cursor-pointer hover:bg-accent"
+            className={`float-right ${navButtonClassName}`}
             onClick={nextNav}
           >
             <ChevronRight className="w-6 h-6" />
@@ -415,11 +438,17 @@ function Survey() {
       </CardFooter>
     </Card>,
 
-    <Card key={5} className="w-full max-w-240">
+    <Card key={5} className={cardClassName}>
       <CardHeader>
-        <CardTitle>Survey</CardTitle>
-        <CardDescription>Question 5</CardDescription>
-        <CardAction>5 / 10</CardAction>
+        <CardTitle className="text-2xl font-semibold text-gray-900">
+          Survey
+        </CardTitle>
+        <CardDescription className="text-base text-gray-500">
+          Question 5
+        </CardDescription>
+        <CardAction className="text-gray-500 dark:text-gray-300">
+          5 / 10
+        </CardAction>
       </CardHeader>
       <CardContent>
         <div className="flex flex-col gap-2">
@@ -454,14 +483,11 @@ function Survey() {
       </CardContent>
       <CardFooter>
         <div className="relative w-full h-fit">
-          <div
-            className="float-left p-2 rounded-full border cursor-pointer hover:bg-accent"
-            onClick={prevNav}
-          >
+          <div className={`float-left ${navButtonClassName}`} onClick={prevNav}>
             <ChevronLeft className="w-6 h-6" />
           </div>
           <div
-            className="float-right p-2 rounded-full border cursor-pointer hover:bg-accent"
+            className={`float-right ${navButtonClassName}`}
             onClick={nextNav}
           >
             <ChevronRight className="w-6 h-6" />
@@ -470,11 +496,17 @@ function Survey() {
       </CardFooter>
     </Card>,
 
-    <Card key={6} className="w-full max-w-240">
+    <Card key={6} className={cardClassName}>
       <CardHeader>
-        <CardTitle>Survey</CardTitle>
-        <CardDescription>Question 6</CardDescription>
-        <CardAction>6 / 10</CardAction>
+        <CardTitle className="text-2xl font-semibold text-gray-900">
+          Survey
+        </CardTitle>
+        <CardDescription className="text-base text-gray-500">
+          Question 6
+        </CardDescription>
+        <CardAction className="text-gray-500 dark:text-gray-300">
+          6 / 10
+        </CardAction>
       </CardHeader>
       <CardContent>
         <div className="flex flex-col gap-2">
@@ -511,14 +543,11 @@ function Survey() {
       </CardContent>
       <CardFooter>
         <div className="relative w-full h-fit">
-          <div
-            className="float-left p-2 rounded-full border cursor-pointer hover:bg-accent"
-            onClick={prevNav}
-          >
+          <div className={`float-left ${navButtonClassName}`} onClick={prevNav}>
             <ChevronLeft className="w-6 h-6" />
           </div>
           <div
-            className="float-right p-2 rounded-full border cursor-pointer hover:bg-accent"
+            className={`float-right ${navButtonClassName}`}
             onClick={nextNav}
           >
             <ChevronRight className="w-6 h-6" />
@@ -527,11 +556,17 @@ function Survey() {
       </CardFooter>
     </Card>,
 
-    <Card key={7} className="w-full max-w-240">
+    <Card key={7} className={cardClassName}>
       <CardHeader>
-        <CardTitle>Survey</CardTitle>
-        <CardDescription>Question 7</CardDescription>
-        <CardAction>7 / 10</CardAction>
+        <CardTitle className="text-2xl font-semibold text-gray-900">
+          Survey
+        </CardTitle>
+        <CardDescription className="text-base text-gray-500">
+          Question 7
+        </CardDescription>
+        <CardAction className="text-gray-500 dark:text-gray-300">
+          7 / 10
+        </CardAction>
       </CardHeader>
       <CardContent>
         <div className="flex flex-col gap-2">
@@ -560,14 +595,11 @@ function Survey() {
       </CardContent>
       <CardFooter>
         <div className="relative w-full h-fit">
-          <div
-            className="float-left p-2 rounded-full border cursor-pointer hover:bg-accent"
-            onClick={prevNav}
-          >
+          <div className={`float-left ${navButtonClassName}`} onClick={prevNav}>
             <ChevronLeft className="w-6 h-6" />
           </div>
           <div
-            className="float-right p-2 rounded-full border cursor-pointer hover:bg-accent"
+            className={`float-right ${navButtonClassName}`}
             onClick={nextNav}
           >
             <ChevronRight className="w-6 h-6" />
@@ -576,11 +608,17 @@ function Survey() {
       </CardFooter>
     </Card>,
 
-    <Card key={8} className="w-full max-w-240">
+    <Card key={8} className={cardClassName}>
       <CardHeader>
-        <CardTitle>Survey</CardTitle>
-        <CardDescription>Question 8</CardDescription>
-        <CardAction>8 / 10</CardAction>
+        <CardTitle className="text-2xl font-semibold text-gray-900">
+          Survey
+        </CardTitle>
+        <CardDescription className="text-base text-gray-500">
+          Question 8
+        </CardDescription>
+        <CardAction className="text-gray-500 dark:text-gray-300">
+          8 / 10
+        </CardAction>
       </CardHeader>
       <CardContent>
         <div className="flex flex-col gap-2">
@@ -641,14 +679,11 @@ function Survey() {
       </CardContent>
       <CardFooter>
         <div className="relative w-full h-fit">
-          <div
-            className="float-left p-2 rounded-full border cursor-pointer hover:bg-accent"
-            onClick={prevNav}
-          >
+          <div className={`float-left ${navButtonClassName}`} onClick={prevNav}>
             <ChevronLeft className="w-6 h-6" />
           </div>
           <div
-            className="float-right p-2 rounded-full border cursor-pointer hover:bg-accent"
+            className={`float-right ${navButtonClassName}`}
             onClick={nextNav}
           >
             <ChevronRight className="w-6 h-6" />
@@ -657,11 +692,17 @@ function Survey() {
       </CardFooter>
     </Card>,
 
-    <Card key={9} className="w-full max-w-240">
+    <Card key={9} className={cardClassName}>
       <CardHeader>
-        <CardTitle>Survey</CardTitle>
-        <CardDescription>Question 9</CardDescription>
-        <CardAction>9 / 10</CardAction>
+        <CardTitle className="text-2xl font-semibold text-gray-900">
+          Survey
+        </CardTitle>
+        <CardDescription className="text-base text-gray-500">
+          Question 9
+        </CardDescription>
+        <CardAction className="text-gray-500 dark:text-gray-300">
+          9 / 10
+        </CardAction>
       </CardHeader>
       <CardContent>
         <div className="flex flex-col gap-2">
@@ -723,14 +764,11 @@ function Survey() {
       </CardContent>
       <CardFooter>
         <div className="relative w-full h-fit">
-          <div
-            className="float-left p-2 rounded-full border cursor-pointer hover:bg-accent"
-            onClick={prevNav}
-          >
+          <div className={`float-left ${navButtonClassName}`} onClick={prevNav}>
             <ChevronLeft className="w-6 h-6" />
           </div>
           <div
-            className="float-right p-2 rounded-full border cursor-pointer hover:bg-accent"
+            className={`float-right ${navButtonClassName}`}
             onClick={nextNav}
           >
             <ChevronRight className="w-6 h-6" />
@@ -739,32 +777,37 @@ function Survey() {
       </CardFooter>
     </Card>,
 
-    <Card key={10} className="w-full max-w-240">
+    <Card key={10} className={cardClassName}>
       <CardHeader>
-        <CardTitle>Survey</CardTitle>
-        <CardDescription>Question 10</CardDescription>
-        <CardAction>10 / 10</CardAction>
+        <CardTitle className="text-2xl font-semibold text-gray-900">
+          Survey
+        </CardTitle>
+        <CardDescription className="text-base text-gray-500">
+          Question 10
+        </CardDescription>
+        <CardAction className="text-gray-500 dark:text-gray-300">
+          10 / 10
+        </CardAction>
       </CardHeader>
       <CardContent>
         <div className="flex flex-col gap-2">
-          <h2>(Optional) Anything else you’d like us to know?</h2>
+          <h2>(Optional) Anything else you'd like us to know?</h2>
           <Textarea
             value={q10}
             onChange={(e) => setq10((e as any).target.value)}
-            className="border-0 border-b-2 shadow-none rounded-none"
+            className="rounded-none border-0 border-b-2 border-app-blue/45 shadow-none focus-visible:ring-app-blue"
           />
         </div>
       </CardContent>
       <CardFooter>
         <div className="relative w-full h-fit">
-          <div
-            className="float-left p-2 rounded-full border cursor-pointer hover:bg-accent"
-            onClick={prevNav}
-          >
+          <div className={`float-left ${navButtonClassName}`} onClick={prevNav}>
             <ChevronLeft className="w-6 h-6" />
           </div>
           <div className="float-right rounded-md cursor-pointer">
-            <Button>Submit</Button>
+            <Button className="bg-app-blue text-white hover:bg-app-blue-dark">
+              Submit
+            </Button>
           </div>
         </div>
       </CardFooter>
@@ -772,9 +815,17 @@ function Survey() {
   ];
 
   return (
-    <div className="p-4 flex flex-col gap-2 min-h-dvh justify-center items-center">
-      {pages[nav - 1]}
-    </div>
+    <>
+      <div className="relative">
+        <Progress
+          value={progress}
+          className="h-1 absolute top-0 left-0 rounded-none"
+        />
+        <div className="flex min-h-dvh flex-col items-center justify-center gap-2 bg-linear-to-b from-app-blue-light/15 via-background to-background p-4 md:p-8">
+          {pages[nav - 1]}
+        </div>
+      </div>
+    </>
   );
 }
 
