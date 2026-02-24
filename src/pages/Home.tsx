@@ -1,3 +1,4 @@
+import React from "react";
 import Nav from "@/components/Nav";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
@@ -128,7 +129,9 @@ function Home() {
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-app-blue" />
-                      <span>Failure to meet work or school responsibilities</span>
+                      <span>
+                        Failure to meet work or school responsibilities
+                      </span>
                     </li>
                   </ul>
                   <span className="mt-6 inline-flex w-fit items-center rounded-full bg-app-blue px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-app-blue-dark">

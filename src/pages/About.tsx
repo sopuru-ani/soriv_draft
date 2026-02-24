@@ -1,3 +1,4 @@
+import React from "react";
 import Nav from "@/components/Nav";
 import { ScrollArea } from "@/components/ui/scroll-area";
 function About() {
