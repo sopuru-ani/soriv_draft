@@ -804,8 +804,8 @@ function Survey() {
           <div className={`float-left ${navButtonClassName}`} onClick={prevNav}>
             <ChevronLeft className="w-6 h-6" />
           </div>
-          <div className="float-right rounded-md cursor-pointer">
-            <Button className="bg-app-blue text-white hover:bg-app-blue-dark">
+          <div className="float-right cursor-pointer rounded-full">
+            <Button className="bg-app-blue text-white hover:bg-app-blue-dark rounded-full cursor-pointer">
               Submit
             </Button>
           </div>
