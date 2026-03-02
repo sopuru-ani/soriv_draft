@@ -46,6 +46,9 @@ function Home() {
                     people can recognize warning signs early and connect to help
                     quickly.
                   </p>
+                  <span className="mt-6 inline-flex w-fit items-center rounded-full bg-app-blue px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-app-blue-dark">
+                    Learn More
+                  </span>
                 </article>
               </div>
             </section>
@@ -61,6 +64,9 @@ function Home() {
                     relievers and illegal substances. Misuse of either can cause
                     dependence, overdose, and death.
                   </p>
+                  <span className="mt-6 inline-flex w-fit items-center rounded-full bg-app-blue px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-app-blue-dark">
+                    Learn More
+                  </span>
                 </article>
                 <div className="order-1 md:order-2 md:col-span-5 md:col-start-8 md:row-start-1">
                   <img
@@ -83,7 +89,7 @@ function Home() {
                     and 80-90% of these deaths now involve synthetic opioids,
                     especially fentanyl.
                   </p>
-                  <p className="mt-5 inline-block rounded-full border border-app-blue/30 px-4 py-1.5 text-sm font-medium text-app-blue-dark">
+                  <p className="mt-5 inline-block rounded-full border border-app-blue/30 px-4 py-1.5 text-sm font-medium text-app-blue-dark cursor-pointer">
                     Fast action and prevention save lives.
                   </p>
                 </article>
