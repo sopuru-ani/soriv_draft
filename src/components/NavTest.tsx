@@ -11,7 +11,7 @@ function Nav() {
         </div>
         <div className="w-[50%] max-w-150 flex md:flex-row md:justify-around">
           <Link to={"/"}>
-            <p className="py-4 font-semibold border-t-4 border-t-app-blue">
+            <p className="py-4 font-semibold border-t-4 border-t-primary">
               Home
             </p>
           </Link>
@@ -37,7 +37,7 @@ function Nav() {
           </Link>
         </div>
       </nav> */}
-      <nav className="w-full h-15 bg-white z-2 px-4 flex md:flex-row md:justify-between items-center border-b-2 border-b-accent fixed">
+      <nav className="w-full h-15 bg-background z-2 px-4 flex md:flex-row md:justify-between items-center border-b-2 border-b-accent fixed">
         <div className="h-full">
           <i className="h-full md:text-lg font-bold border-t-4 border-t-transparent flex items-center">
             SOR-IV
@@ -45,7 +45,7 @@ function Nav() {
         </div>
         <div className="w-[50%] h-full max-w-150 flex md:flex-row md:justify-around">
           <Link to={"/"}>
-            <p className="h-full font-semibold border-t-4 border-t-app-blue flex items-center">
+            <p className="h-full font-semibold border-t-4 border-t-primary flex items-center">
               Home
             </p>
           </Link>
@@ -77,3 +77,4 @@ function Nav() {
 }
 
 export default Nav;
+

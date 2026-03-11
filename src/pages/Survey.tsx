@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import Nav from "@/components/Nav";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -14,7 +16,7 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Textarea } from "@/components/ui/textarea";
 import { Progress } from "@/components/ui/progress";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Link } from "lucide-react";
 
 function Survey() {
   const [nav, setNav] = useState<number>(1);
@@ -25,12 +27,23 @@ function Survey() {
   };
   const prevNav = () => setNav((n) => Math.max(1, n - 1));
   const cardClassName =
-    "w-full max-w-240 border-app-blue/25 bg-background/95 shadow-[0_10px_24px_-20px_var(--color-app-blue-dark)] backdrop-blur-sm";
+    "w-full max-w-240 border-secondary/25 bg-background/95 shadow-[0_10px_24px_-20px_var(--color-primary)] backdrop-blur-sm";
   const navButtonClassName =
-    "rounded-full border border-app-blue p-2 text-white bg-app-blue transition-all duration-200 cursor-pointer hover:bg-app-blue-dark";
+    "rounded-full border border-secondary p-2 text-primary-foreground bg-primary transition-all duration-200 cursor-pointer hover:bg-secondary";
 
   const [q1, setq1] = useState("Prefer not to say");
-  const [q2, setq2] = useState("Prefer not to say");
+  const [q2, setq2] = useState({
+    Alcohol: false,
+    Marijuana: false,
+    PrescriptionPainMedicationNotPrescribedToYou: false,
+    PrescriptionMedicationInAWayNotPrescribed: false,
+    Cocaine: false,
+    Heroin: false,
+    FentanylOrUnknownStreetPills: false,
+    VapingNicotine: false,
+    Other: false,
+    PreferNotToSay: true,
+  });
   const [q3, setq3] = useState("Prefer not to say");
   const [q4, setq4] = useState({
     Academics: false,
@@ -80,6 +93,33 @@ function Survey() {
     });
   };
 
+  const toggleQ2 = (key: keyof typeof q2) => {
+    setq2((prev) => {
+      const newState = { ...prev, [key]: !prev[key] };
+
+      if (key === "PreferNotToSay" && newState.PreferNotToSay) {
+        return {
+          Alcohol: false,
+          Marijuana: false,
+          PrescriptionPainMedicationNotPrescribedToYou: false,
+          PrescriptionMedicationInAWayNotPrescribed: false,
+          Cocaine: false,
+          Heroin: false,
+          FentanylOrUnknownStreetPills: false,
+          VapingNicotine: false,
+          Other: false,
+          PreferNotToSay: true,
+        };
+      }
+
+      if (key !== "PreferNotToSay" && newState[key]) {
+        newState.PreferNotToSay = false;
+      }
+
+      return newState;
+    });
+  };
+
   const toggleQ8 = (key: keyof typeof q8) => {
     setq8((prev) => ({ ...prev, [key]: !prev[key] }));
   };
@@ -87,15 +127,13 @@ function Survey() {
   const pages = [
     <Card key={1} className={cardClassName}>
       <CardHeader>
-        <CardTitle className="text-2xl font-semibold text-gray-900">
+        <CardTitle className="text-2xl font-semibold text-foreground">
           Survey
         </CardTitle>
-        <CardDescription className="text-base text-gray-500">
+        <CardDescription className="text-base text-muted-foreground">
           Question 1
         </CardDescription>
-        <CardAction className="text-gray-500 dark:text-gray-300">
-          1 / 10
-        </CardAction>
+        <CardAction className="text-muted-foreground">1 / 10</CardAction>
       </CardHeader>
       <CardContent>
         <div className="flex flex-col gap-2">
@@ -142,112 +180,106 @@ function Survey() {
 
     <Card key={2} className={cardClassName}>
       <CardHeader>
-        <CardTitle className="text-2xl font-semibold text-gray-900">
+        <CardTitle className="text-2xl font-semibold text-foreground">
           Survey
         </CardTitle>
-        <CardDescription className="text-base text-gray-500">
+        <CardDescription className="text-base text-muted-foreground">
           Question 2
         </CardDescription>
-        <CardAction className="text-gray-500 dark:text-gray-300">
-          2 / 10
-        </CardAction>
+        <CardAction className="text-muted-foreground">2 / 10</CardAction>
       </CardHeader>
       <CardContent>
         <div className="flex flex-col gap-2">
           <h2>Which substances have you used? (Select all that apply)</h2>
-          <RadioGroup defaultValue={q2}>
-            <div className="flex items-center gap-3">
-              <RadioGroupItem
-                value="Alcohol"
-                onClick={() => setq2("Alcohol")}
-                id="q2-1"
-              />
-              <Label htmlFor="q2-1">Alcohol</Label>
-            </div>
-            <div className="flex items-center gap-3">
-              <RadioGroupItem
-                value="Marijuana"
-                onClick={() => setq2("Marijuana")}
-                id="q2-2"
-              />
-              <Label htmlFor="q2-2">Marijuana</Label>
-            </div>
-            <div className="flex items-center gap-3">
-              <RadioGroupItem
-                value="Prescription pain medication not prescribed to you (e.g., oxycodone, Percocet)"
-                onClick={() =>
-                  setq2(
-                    "Prescription pain medication not prescribed to you (e.g., oxycodone, Percocet)",
-                  )
-                }
-                id="q2-3"
-              />
-              <Label htmlFor="q2-3">
-                Prescription pain medication not prescribed to you (e.g.,
-                oxycodone, Percocet)
-              </Label>
-            </div>
-            <div className="flex items-center gap-3">
-              <RadioGroupItem
-                value="Prescription medication in a way not prescribed"
-                onClick={() =>
-                  setq2("Prescription medication in a way not prescribed")
-                }
-                id="q2-4"
-              />
-              <Label htmlFor="q2-4">
-                Prescription medication in a way not prescribed
-              </Label>
-            </div>
-            <div className="flex items-center gap-3">
-              <RadioGroupItem
-                value="Cocaine"
-                onClick={() => setq2("Cocaine")}
-                id="q2-5"
-              />
-              <Label htmlFor="q2-5">Cocaine</Label>
-            </div>
-            <div className="flex items-center gap-3">
-              <RadioGroupItem
-                value="Heroin"
-                onClick={() => setq2("Heroin")}
-                id="q2-6"
-              />
-              <Label htmlFor="q2-6">Heroin</Label>
-            </div>
-            <div className="flex items-center gap-3">
-              <RadioGroupItem
-                value="Fentanyl or unknown street pills"
-                onClick={() => setq2("Fentanyl or unknown street pills")}
-                id="q2-7"
-              />
-              <Label htmlFor="q2-7">Fentanyl or unknown street pills</Label>
-            </div>
-            <div className="flex items-center gap-3">
-              <RadioGroupItem
-                value="Vaping/Nicotine"
-                onClick={() => setq2("Vaping/Nicotine")}
-                id="q2-8"
-              />
-              <Label htmlFor="q2-8">Vaping/Nicotine</Label>
-            </div>
-            <div className="flex items-center gap-3">
-              <RadioGroupItem
-                value="Other"
-                onClick={() => setq2("Other")}
-                id="q2-9"
-              />
-              <Label htmlFor="q2-9">Other</Label>
-            </div>
-            <div className="flex items-center gap-3">
-              <RadioGroupItem
-                value="Prefer not to say"
-                onClick={() => setq2("Prefer not to say")}
-                id="q2-10"
-              />
-              <Label htmlFor="q2-10">Prefer not to say</Label>
-            </div>
-          </RadioGroup>
+          <div className="flex items-center gap-3">
+            <Checkbox
+              checked={q2.Alcohol}
+              onCheckedChange={() => toggleQ2("Alcohol")}
+              id="q2-1"
+            />
+            <Label htmlFor="q2-1">Alcohol</Label>
+          </div>
+          <div className="flex items-center gap-3">
+            <Checkbox
+              checked={q2.Marijuana}
+              onCheckedChange={() => toggleQ2("Marijuana")}
+              id="q2-2"
+            />
+            <Label htmlFor="q2-2">Marijuana</Label>
+          </div>
+          <div className="flex items-center gap-3">
+            <Checkbox
+              checked={q2.PrescriptionPainMedicationNotPrescribedToYou}
+              onCheckedChange={() =>
+                toggleQ2("PrescriptionPainMedicationNotPrescribedToYou")
+              }
+              id="q2-3"
+            />
+            <Label htmlFor="q2-3">
+              Prescription pain medication not prescribed to you (e.g.,
+              oxycodone, Percocet)
+            </Label>
+          </div>
+          <div className="flex items-center gap-3">
+            <Checkbox
+              checked={q2.PrescriptionMedicationInAWayNotPrescribed}
+              onCheckedChange={() =>
+                toggleQ2("PrescriptionMedicationInAWayNotPrescribed")
+              }
+              id="q2-4"
+            />
+            <Label htmlFor="q2-4">
+              Prescription medication in a way not prescribed
+            </Label>
+          </div>
+          <div className="flex items-center gap-3">
+            <Checkbox
+              checked={q2.Cocaine}
+              onCheckedChange={() => toggleQ2("Cocaine")}
+              id="q2-5"
+            />
+            <Label htmlFor="q2-5">Cocaine</Label>
+          </div>
+          <div className="flex items-center gap-3">
+            <Checkbox
+              checked={q2.Heroin}
+              onCheckedChange={() => toggleQ2("Heroin")}
+              id="q2-6"
+            />
+            <Label htmlFor="q2-6">Heroin</Label>
+          </div>
+          <div className="flex items-center gap-3">
+            <Checkbox
+              checked={q2.FentanylOrUnknownStreetPills}
+              onCheckedChange={() => toggleQ2("FentanylOrUnknownStreetPills")}
+              id="q2-7"
+            />
+            <Label htmlFor="q2-7">Fentanyl or unknown street pills</Label>
+          </div>
+          <div className="flex items-center gap-3">
+            <Checkbox
+              checked={q2.VapingNicotine}
+              onCheckedChange={() => toggleQ2("VapingNicotine")}
+              id="q2-8"
+            />
+            <Label htmlFor="q2-8">Vaping/Nicotine</Label>
+          </div>
+          <div className="flex items-center gap-3">
+            <Checkbox
+              checked={q2.Other}
+              onCheckedChange={() => toggleQ2("Other")}
+              id="q2-9"
+            />
+            <Label htmlFor="q2-9">Other</Label>
+          </div>
+          <div className="flex items-center gap-3">
+            <Checkbox
+              checked={q2.PreferNotToSay}
+              onCheckedChange={() => toggleQ2("PreferNotToSay")}
+              id="q2-10"
+            />
+            <Label htmlFor="q2-10">Prefer not to say</Label>
+          </div>
         </div>
       </CardContent>
       <CardFooter>
@@ -267,15 +299,13 @@ function Survey() {
 
     <Card key={3} className={cardClassName}>
       <CardHeader>
-        <CardTitle className="text-2xl font-semibold text-gray-900">
+        <CardTitle className="text-2xl font-semibold text-foreground">
           Survey
         </CardTitle>
-        <CardDescription className="text-base text-gray-500">
+        <CardDescription className="text-base text-muted-foreground">
           Question 3
         </CardDescription>
-        <CardAction className="text-gray-500 dark:text-gray-300">
-          3 / 10
-        </CardAction>
+        <CardAction className="text-muted-foreground">3 / 10</CardAction>
       </CardHeader>
       <CardContent>
         <div className="flex flex-col gap-2">
@@ -349,15 +379,13 @@ function Survey() {
 
     <Card key={4} className={cardClassName}>
       <CardHeader>
-        <CardTitle className="text-2xl font-semibold text-gray-900">
+        <CardTitle className="text-2xl font-semibold text-foreground">
           Survey
         </CardTitle>
-        <CardDescription className="text-base text-gray-500">
+        <CardDescription className="text-base text-muted-foreground">
           Question 4
         </CardDescription>
-        <CardAction className="text-gray-500 dark:text-gray-300">
-          4 / 10
-        </CardAction>
+        <CardAction className="text-muted-foreground">4 / 10</CardAction>
       </CardHeader>
       <CardContent>
         <div className="flex flex-col gap-2">
@@ -440,15 +468,13 @@ function Survey() {
 
     <Card key={5} className={cardClassName}>
       <CardHeader>
-        <CardTitle className="text-2xl font-semibold text-gray-900">
+        <CardTitle className="text-2xl font-semibold text-foreground">
           Survey
         </CardTitle>
-        <CardDescription className="text-base text-gray-500">
+        <CardDescription className="text-base text-muted-foreground">
           Question 5
         </CardDescription>
-        <CardAction className="text-gray-500 dark:text-gray-300">
-          5 / 10
-        </CardAction>
+        <CardAction className="text-muted-foreground">5 / 10</CardAction>
       </CardHeader>
       <CardContent>
         <div className="flex flex-col gap-2">
@@ -498,15 +524,13 @@ function Survey() {
 
     <Card key={6} className={cardClassName}>
       <CardHeader>
-        <CardTitle className="text-2xl font-semibold text-gray-900">
+        <CardTitle className="text-2xl font-semibold text-foreground">
           Survey
         </CardTitle>
-        <CardDescription className="text-base text-gray-500">
+        <CardDescription className="text-base text-muted-foreground">
           Question 6
         </CardDescription>
-        <CardAction className="text-gray-500 dark:text-gray-300">
-          6 / 10
-        </CardAction>
+        <CardAction className="text-muted-foreground">6 / 10</CardAction>
       </CardHeader>
       <CardContent>
         <div className="flex flex-col gap-2">
@@ -558,15 +582,13 @@ function Survey() {
 
     <Card key={7} className={cardClassName}>
       <CardHeader>
-        <CardTitle className="text-2xl font-semibold text-gray-900">
+        <CardTitle className="text-2xl font-semibold text-foreground">
           Survey
         </CardTitle>
-        <CardDescription className="text-base text-gray-500">
+        <CardDescription className="text-base text-muted-foreground">
           Question 7
         </CardDescription>
-        <CardAction className="text-gray-500 dark:text-gray-300">
-          7 / 10
-        </CardAction>
+        <CardAction className="text-muted-foreground">7 / 10</CardAction>
       </CardHeader>
       <CardContent>
         <div className="flex flex-col gap-2">
@@ -610,15 +632,13 @@ function Survey() {
 
     <Card key={8} className={cardClassName}>
       <CardHeader>
-        <CardTitle className="text-2xl font-semibold text-gray-900">
+        <CardTitle className="text-2xl font-semibold text-foreground">
           Survey
         </CardTitle>
-        <CardDescription className="text-base text-gray-500">
+        <CardDescription className="text-base text-muted-foreground">
           Question 8
         </CardDescription>
-        <CardAction className="text-gray-500 dark:text-gray-300">
-          8 / 10
-        </CardAction>
+        <CardAction className="text-muted-foreground">8 / 10</CardAction>
       </CardHeader>
       <CardContent>
         <div className="flex flex-col gap-2">
@@ -694,15 +714,13 @@ function Survey() {
 
     <Card key={9} className={cardClassName}>
       <CardHeader>
-        <CardTitle className="text-2xl font-semibold text-gray-900">
+        <CardTitle className="text-2xl font-semibold text-foreground">
           Survey
         </CardTitle>
-        <CardDescription className="text-base text-gray-500">
+        <CardDescription className="text-base text-muted-foreground">
           Question 9
         </CardDescription>
-        <CardAction className="text-gray-500 dark:text-gray-300">
-          9 / 10
-        </CardAction>
+        <CardAction className="text-muted-foreground">9 / 10</CardAction>
       </CardHeader>
       <CardContent>
         <div className="flex flex-col gap-2">
@@ -779,15 +797,13 @@ function Survey() {
 
     <Card key={10} className={cardClassName}>
       <CardHeader>
-        <CardTitle className="text-2xl font-semibold text-gray-900">
+        <CardTitle className="text-2xl font-semibold text-foreground">
           Survey
         </CardTitle>
-        <CardDescription className="text-base text-gray-500">
+        <CardDescription className="text-base text-muted-foreground">
           Question 10
         </CardDescription>
-        <CardAction className="text-gray-500 dark:text-gray-300">
-          10 / 10
-        </CardAction>
+        <CardAction className="text-muted-foreground">10 / 10</CardAction>
       </CardHeader>
       <CardContent>
         <div className="flex flex-col gap-2">
@@ -795,7 +811,7 @@ function Survey() {
           <Textarea
             value={q10}
             onChange={(e) => setq10((e as any).target.value)}
-            className="rounded-none border-0 border-b-2 border-app-blue/45 shadow-none focus-visible:ring-app-blue"
+            className="rounded-none border-0 border-b-2 border-secondary/45 shadow-none focus-visible:ring-primary"
           />
         </div>
       </CardContent>
@@ -805,7 +821,7 @@ function Survey() {
             <ChevronLeft className="w-6 h-6" />
           </div>
           <div className="float-right cursor-pointer rounded-full">
-            <Button className="bg-app-blue text-white hover:bg-app-blue-dark rounded-full cursor-pointer">
+            <Button className="bg-primary text-primary-foreground hover:bg-secondary rounded-full cursor-pointer">
               Submit
             </Button>
           </div>
@@ -816,15 +832,25 @@ function Survey() {
 
   return (
     <>
-      <div className="relative">
+      {/* <div className="relative">
         <Progress
           value={progress}
           className="h-1 absolute top-0 left-0 rounded-none"
         />
-        <div className="flex min-h-dvh flex-col items-center justify-center gap-2 bg-linear-to-b from-app-blue-light/15 via-background to-background p-4 md:p-8">
+        <div className="flex min-h-dvh flex-col items-center justify-center gap-2 bg-linear-to-b from-secondary/15 via-background to-background p-4 md:p-8">
           {pages[nav - 1]}
         </div>
-      </div>
+      </div> */}
+      <Nav />
+
+      <ScrollArea className="h-[calc(100dvh-3.75rem)] w-full">
+        <div className="w-full h-[calc(100dvh-3.75rem)] flex flex-col justify-center items-center gap-2">
+          <Link className="w-12 h-12 md:w-10 md:h-10" />
+          <p className="md:text-lg">
+            The survey link would go here when we have it
+          </p>
+        </div>
+      </ScrollArea>
     </>
   );
 }

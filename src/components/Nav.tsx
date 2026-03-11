@@ -16,19 +16,19 @@ function Nav() {
 
   const desktopLinkClass = ({ isActive }: { isActive: boolean }) =>
     `h-full font-semibold border-t-4 flex items-center transition-colors ${
-      isActive ? "border-t-app-blue text-app-blue-dark" : "border-t-transparent"
+      isActive ? "border-t-primary text-primary" : "border-t-transparent"
     }`;
 
   const mobileLinkClass = ({ isActive }: { isActive: boolean }) =>
     `w-full rounded-lg px-3 py-2 font-medium transition-colors ${
       isActive
-        ? "bg-app-blue-light/40 text-app-blue-dark"
-        : "text-gray-700 hover:bg-app-blue-light/25"
+        ? "bg-secondary/30 text-primary"
+        : "text-muted-foreground hover:bg-secondary/20"
     }`;
 
   return (
     <>
-      <nav className="fixed z-20 h-15 w-full border-b-2 border-b-accent bg-white px-4">
+      <nav className="fixed z-20 h-15 w-full border-b-2 border-b-accent bg-background px-4">
         <div className="mx-auto flex h-full max-w-6xl items-center justify-between">
           <i className="h-full md:text-lg font-bold border-t-4 border-t-transparent flex items-center">
             SOR-IV
@@ -49,7 +49,7 @@ function Nav() {
 
           <button
             type="button"
-            className="inline-flex items-center justify-center rounded-md p-2 text-gray-700 transition-colors hover:bg-app-blue-light/25 md:hidden"
+            className="inline-flex items-center justify-center rounded-md p-2 text-muted-foreground transition-colors hover:bg-secondary/20 md:hidden"
             onClick={() => setIsMobileOpen((prev) => !prev)}
             aria-label="Toggle menu"
             aria-expanded={isMobileOpen}
@@ -59,7 +59,7 @@ function Nav() {
         </div>
 
         {isMobileOpen && (
-          <div className="border-b-2 border-b-accent bg-white px-4 pb-4 pt-2 md:hidden">
+          <div className="border-b-2 border-b-accent bg-background px-4 pb-4 pt-2 md:hidden">
             <div className="mx-auto flex max-w-6xl flex-col gap-1">
               {navItems.map((item) => (
                 <NavLink

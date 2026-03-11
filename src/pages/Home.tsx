@@ -1,6 +1,7 @@
 import React from "react";
 import Nav from "@/components/Nav";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { LazyImage } from "@/components/LazyImage";
 
 function Home() {
   return (
@@ -8,192 +9,216 @@ function Home() {
       <Nav />
       <ScrollArea className="h-[calc(100dvh-3.75rem)] w-full">
         <main className="relative overflow-hidden bg-background px-4 pb-20 pt-10 md:px-8 md:pt-16">
-          <div className="pointer-events-none absolute inset-x-0 top-0 h-60 bg-linear-to-b from-app-blue-light/25 to-transparent" />
-          <div className="mx-auto max-w-6xl">
-            <header className="max-w-4xl">
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-app-blue-dark">
-                SORIV Education Hub
-              </p>
-              <h1 className="mt-3 text-4xl font-semibold leading-tight text-gray-900 md:text-6xl dark:text-gray-100">
-                Understanding the Opioid Crisis
-              </h1>
-              <p className="mt-6 max-w-3xl text-base leading-7 text-gray-700 md:text-lg dark:text-gray-300">
-                A public health emergency marked by increased misuse, overdose
-                risk, and preventable loss of life in communities across
-                Maryland and beyond.
-              </p>
-            </header>
+          <style>{`
+            @keyframes homeRise {
+              from {
+                opacity: 0;
+                transform: translateY(26px) scale(0.98);
+              }
+              to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+              }
+            }
+            @keyframes homeDrift {
+              0%,
+              100% {
+                transform: translate3d(0, 0, 0);
+              }
+              50% {
+                transform: translate3d(0, -16px, 0);
+              }
+            }
+            @keyframes homeSpin {
+              from {
+                transform: rotate(0deg);
+              }
+              to {
+                transform: rotate(360deg);
+              }
+            }
+            @keyframes homePulse {
+              0%,
+              100% {
+                opacity: 0.45;
+              }
+              50% {
+                opacity: 0.85;
+              }
+            }
+          `}</style>
 
-            <section className="mt-14 border-t border-app-blue/20 pt-10 md:mt-16">
-              <div className="grid gap-8 md:grid-cols-12 md:items-center">
-                <div className="md:col-span-5">
-                  <img
-                    src="/drugneedle.jpg"
-                    alt="Substance use and needles"
-                    className="aspect-4/3 w-full rounded-2xl object-cover shadow-[0_14px_40px_-30px_var(--color-app-blue-dark)]"
-                  />
-                </div>
-                <article className="md:col-span-7">
-                  <h2 className="text-2xl font-semibold text-gray-900 md:text-4xl dark:text-gray-100">
-                    Why This Matters Right Now
-                  </h2>
-                  <p className="mt-4 text-lg text-app-blue-dark">
-                    The opioid crisis affects students, families, and whole
-                    neighborhoods.
-                  </p>
-                  <p className="mt-4 border-l-2 border-app-blue/45 pl-4 text-base leading-7 text-gray-700 dark:text-gray-300">
-                    SORIV focuses on clear education and practical response so
-                    people can recognize warning signs early and connect to help
-                    quickly.
-                  </p>
-                  <span className="mt-6 inline-flex w-fit items-center rounded-full bg-app-blue px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-app-blue-dark">
-                    Learn More
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_12%_16%,rgba(68,157,209,0.25),transparent_36%),radial-gradient(circle_at_88%_20%,rgba(244,159,4,0.18),transparent_34%),radial-gradient(circle_at_40%_86%,rgba(11,46,94,0.2),transparent_36%)]" />
+          <div className="pointer-events-none absolute inset-0 opacity-35 [background-image:linear-gradient(to_right,rgba(68,157,209,0.16)_1px,transparent_1px),linear-gradient(to_bottom,rgba(68,157,209,0.16)_1px,transparent_1px)] [background-size:28px_28px] [mask-image:radial-gradient(circle_at_center,black_20%,transparent_80%)]" />
+          <div className="pointer-events-none absolute -left-20 top-10 h-72 w-72 rounded-full bg-secondary/35 blur-3xl [animation:homeDrift_11s_ease-in-out_infinite]" />
+          <div className="pointer-events-none absolute right-[-5rem] top-[12rem] h-80 w-80 rounded-full bg-tertiary/25 blur-3xl [animation:homePulse_10s_ease-in-out_infinite]" />
+          <div className="pointer-events-none absolute right-8 top-8 h-28 w-28 rounded-full border-2 border-secondary/40 [animation:homeSpin_30s_linear_infinite]" />
+
+          <div className="relative mx-auto max-w-6xl font-['Outfit',sans-serif]">
+            <section className="grid gap-8 lg:grid-cols-12 lg:items-center">
+              <header className="lg:col-span-8 [animation:homeRise_0.7s_ease-out_forwards]">
+                <p className="inline-flex items-center gap-2 rounded-lg border border-secondary/40 bg-background/70 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-primary backdrop-blur-sm">
+                  SORIV Education Hub
+                </p>
+                <h1 className="mt-4 text-4xl font-extrabold leading-tight text-foreground md:text-6xl">
+                  Real talk about opioids,
+                  <span className="block bg-gradient-to-r from-primary via-secondary to-tertiary bg-clip-text text-transparent">
+                    risk, and how to protect your people.
                   </span>
-                </article>
-              </div>
-            </section>
-
-            <section className="mt-14 border-t border-app-blue/20 pt-10 md:mt-16">
-              <div className="grid gap-8 md:grid-cols-12 md:items-center">
-                <article className="order-2 md:order-1 md:col-span-7 md:col-start-1 md:row-start-1">
-                  <h2 className="text-2xl font-semibold text-gray-900 md:text-4xl dark:text-gray-100">
-                    What Are Opioids?
-                  </h2>
-                  <p className="mt-4 text-base leading-7 text-gray-700 dark:text-gray-300">
-                    Opioids are a class of drugs that include prescription pain
-                    relievers and illegal substances. Misuse of either can cause
-                    dependence, overdose, and death.
-                  </p>
-                  <span className="mt-6 inline-flex w-fit items-center rounded-full bg-app-blue px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-app-blue-dark">
-                    Learn More
-                  </span>
-                </article>
-                <div className="order-1 md:order-2 md:col-span-5 md:col-start-8 md:row-start-1">
-                  <img
-                    src="/opioidtypes.png"
-                    alt="Types of opioids"
-                    className="aspect-4/3 w-full rounded-2xl object-cover shadow-[0_14px_40px_-30px_var(--color-app-blue-dark)]"
-                  />
+                </h1>
+                <p className="mt-6 max-w-3xl text-base leading-7 text-muted-foreground md:text-lg">
+                  Quick, clear, and student-friendly info for spotting warning
+                  signs early, reducing harm, and getting support fast on campus
+                  and in your community.
+                </p>
+                <div className="mt-7 flex flex-wrap items-center gap-3">
+                  <button className="rounded-xl bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-[0_12px_28px_-16px_var(--color-primary)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-secondary">
+                    Explore Resources
+                  </button>
+                  <button className="rounded-xl border border-secondary/45 bg-background/70 px-6 py-3 text-sm font-semibold text-primary transition-all duration-300 hover:border-secondary hover:bg-background">
+                    Take the Survey
+                  </button>
                 </div>
-              </div>
-            </section>
+              </header>
 
-            <section className="mt-14 border-t border-app-blue/20 pt-10 md:mt-16">
-              <div className="grid gap-8 md:grid-cols-12 md:items-center">
-                <article className="md:col-span-7">
-                  <h2 className="text-2xl font-semibold text-gray-900 md:text-4xl dark:text-gray-100">
-                    Maryland Overdose Snapshot
-                  </h2>
-                  <p className="mt-4 text-base leading-7 text-gray-700 dark:text-gray-300">
-                    In Maryland, there are 2,500+ annual intoxication deaths,
-                    and 80-90% of these deaths now involve synthetic opioids,
-                    especially fentanyl.
+              <aside className="lg:col-span-4 [animation:homeRise_0.85s_ease-out_0.1s_forwards] [opacity:0]">
+                <div className="rounded-xl border border-secondary/30 bg-card/80 p-5 shadow-[0_18px_44px_-30px_var(--color-primary)] backdrop-blur-sm">
+                  <p className="text-sm font-semibold text-primary">
+                    Maryland Snapshot
                   </p>
-                  <p className="mt-5 inline-block rounded-full border border-app-blue/30 px-4 py-1.5 text-sm font-medium text-app-blue-dark cursor-pointer">
-                    Fast action and prevention save lives.
+                  <p className="mt-2 text-5xl font-black leading-none text-foreground">
+                    2,500+
                   </p>
-                </article>
-                <div className="md:col-span-5">
-                  <div className="overflow-hidden rounded-3xl border-2 border-app-blue shadow-[0_14px_40px_-30px_var(--color-app-blue-dark)]">
-                    <div className="bg-[#5b1f35] px-6 py-5 text-center text-white">
-                      <p className="text-2xl font-semibold leading-tight">
-                        In Maryland
-                      </p>
-                      <p className="mt-2 text-lg font-medium">
-                        2,500+ annual intoxication deaths
-                      </p>
-                    </div>
-                    <div className="bg-[#e53943] px-6 py-7 text-center text-white">
-                      <p className="text-5xl font-bold leading-none">80-90%</p>
-                      <p className="mt-3 text-xl font-semibold leading-tight">
-                        now involve synthetic opioids, fentanyl
-                      </p>
-                    </div>
+                  <p className="mt-2 text-sm text-muted-foreground">
+                    annual intoxication deaths
+                  </p>
+                  <div className="mt-4 rounded-lg bg-tertiary px-4 py-4 text-tertiary-foreground">
+                    <p className="text-2xl font-bold">80-90%</p>
+                    <p className="mt-1 text-sm">
+                      involve synthetic opioids, mostly fentanyl.
+                    </p>
                   </div>
                 </div>
-              </div>
+              </aside>
             </section>
 
-            <section className="mt-14 border-t border-app-blue/20 pt-10 md:mt-16">
-              <div className="grid gap-6 md:grid-cols-2">
-                <article className="rounded-2xl border border-app-blue/25 bg-white/60 p-6 shadow-[0_14px_40px_-36px_var(--color-app-blue-dark)] dark:bg-gray-900/30">
-                  <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-100">
-                    Opioid Misuse Signs
-                  </h2>
-                  <ul className="mt-5 space-y-3 text-gray-700 dark:text-gray-300">
-                    <li className="flex items-start gap-3">
-                      <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-app-blue" />
-                      <span>Unresponsiveness</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-app-blue" />
-                      <span>Pinpoint pupils</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-app-blue" />
-                      <span>Fevers and body aches</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-app-blue" />
-                      <span>
-                        Failure to meet work or school responsibilities
-                      </span>
-                    </li>
-                  </ul>
-                  <span className="mt-6 inline-flex w-fit items-center rounded-full bg-app-blue px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-app-blue-dark">
-                    Get Help Now
-                  </span>
-                </article>
-
-                <article className="rounded-2xl border border-app-blue/25 bg-white/60 p-6 shadow-[0_14px_40px_-36px_var(--color-app-blue-dark)] dark:bg-gray-900/30">
-                  <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-100">
-                    How Can You Respond?
-                  </h2>
-                  <ul className="mt-5 space-y-3 text-gray-700 dark:text-gray-300">
-                    <li className="flex items-start gap-3">
-                      <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-app-blue" />
-                      <span>Recognize the signs</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-app-blue" />
-                      <span>Contact 911 immediately</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-app-blue" />
-                      <span>Administer Narcan if available</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-app-blue" />
-                      <span>Stay with the person until help arrives</span>
-                    </li>
-                  </ul>
-                  <span className="mt-6 inline-flex w-fit items-center rounded-full bg-app-blue px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-app-blue-dark">
-                    Learn More
-                  </span>
-                </article>
-              </div>
+            <section className="mt-8 grid gap-4 [animation:homeRise_0.9s_ease-out_0.18s_forwards] [opacity:0] md:grid-cols-3">
+              {[
+                "Know the signs",
+                "Carry naloxone",
+                "Connect someone to care",
+              ].map((item) => (
+                <div
+                  key={item}
+                  className="rounded-lg border border-secondary/25 bg-card/70 px-4 py-3 text-sm font-medium text-foreground shadow-[0_12px_30px_-28px_var(--color-primary)] backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-secondary/45"
+                >
+                  {item}
+                </div>
+              ))}
             </section>
 
-            <section className="mt-14 border-t border-app-blue/20 pt-10 md:mt-16">
-              <article className="max-w-4xl rounded-2xl bg-app-blue-light/35 p-6 md:p-8">
-                <p className="text-lg font-medium italic text-app-blue-dark md:text-xl">
-                  Prevention is better than cure.
+            <section className="mt-14 grid gap-8 border-t border-secondary/25 pt-10 md:grid-cols-12 md:items-center [animation:homeRise_0.9s_ease-out_0.26s_forwards] [opacity:0]">
+              <div className="md:col-span-5">
+                <LazyImage
+                  src="/drugneedle.jpg"
+                  alt="Substance use and needles"
+                  wrapperClassName="aspect-4/3 w-full overflow-hidden rounded-xl shadow-[0_20px_40px_-28px_var(--color-primary)]"
+                  className="h-full w-full object-cover"
+                />
+              </div>
+              <article className="md:col-span-7">
+                <h2 className="text-2xl font-bold text-foreground md:text-4xl">
+                  Why this matters right now
+                </h2>
+                <p className="mt-4 text-lg font-medium text-primary">
+                  The crisis hits students, families, and friend groups directly.
                 </p>
-                <ul className="mt-5 space-y-3 text-gray-700 dark:text-gray-300">
+                <p className="mt-4 border-l-4 border-secondary/70 pl-4 text-base leading-7 text-muted-foreground">
+                  SORIV gives practical guidance so people can recognize risk,
+                  respond with confidence, and connect to support before a
+                  situation becomes fatal.
+                </p>
+              </article>
+            </section>
+
+            <section className="mt-14 grid gap-8 border-t border-secondary/25 pt-10 md:grid-cols-12 md:items-center [animation:homeRise_0.9s_ease-out_0.34s_forwards] [opacity:0]">
+              <article className="md:col-span-7">
+                <h2 className="text-2xl font-bold text-foreground md:text-4xl">
+                  What are opioids?
+                </h2>
+                <p className="mt-4 text-base leading-7 text-muted-foreground">
+                  Opioids include prescription pain medicines and illegal
+                  substances. Misuse can quickly lead to dependence, overdose,
+                  and death, especially with fentanyl in the drug supply.
+                </p>
+              </article>
+              <div className="md:col-span-5">
+                <LazyImage
+                  src="/opioidtypes.png"
+                  alt="Types of opioids"
+                  wrapperClassName="aspect-4/3 w-full overflow-hidden rounded-xl shadow-[0_20px_40px_-28px_var(--color-primary)]"
+                  className="h-full w-full object-cover"
+                />
+              </div>
+            </section>
+
+            <section className="mt-14 grid gap-6 border-t border-secondary/25 pt-10 [animation:homeRise_0.9s_ease-out_0.42s_forwards] [opacity:0] md:grid-cols-2">
+              <article className="rounded-xl border border-secondary/25 bg-card/80 p-6 shadow-[0_18px_40px_-30px_var(--color-primary)] transition-transform duration-300 hover:-translate-y-1">
+                <h2 className="text-2xl font-bold text-foreground">
+                  Opioid misuse signs
+                </h2>
+                <ul className="mt-5 space-y-3 text-muted-foreground">
+                  {[
+                    "Unresponsiveness",
+                    "Pinpoint pupils",
+                    "Fevers and body aches",
+                    "Missing work or school responsibilities",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-secondary" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </article>
+
+              <article className="rounded-xl border border-secondary/25 bg-card/80 p-6 shadow-[0_18px_40px_-30px_var(--color-primary)] transition-transform duration-300">
+                <h2 className="text-2xl font-bold text-foreground">
+                  How to respond fast
+                </h2>
+                <ul className="mt-5 space-y-3 text-muted-foreground">
+                  {[
+                    "Recognize overdose signs",
+                    "Call 911 immediately",
+                    "Administer naloxone if available",
+                    "Stay until medical help arrives",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-tertiary" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            </section>
+
+            <section className="mt-14 border-t border-secondary/25 pt-10 [animation:homeRise_0.9s_ease-out_0.5s_forwards] [opacity:0]">
+              <article className="rounded-xl bg-gradient-to-r from-secondary/20 via-background to-tertiary/20 p-6 md:p-8">
+                <p className="text-lg font-semibold italic text-primary md:text-xl">
+                  Prevention beats panic.
+                </p>
+                <ul className="mt-5 space-y-3 text-muted-foreground">
                   <li className="flex items-start gap-3">
-                    <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-app-blue" />
-                    <span>Let your source be the right source.</span>
+                    <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-primary" />
+                    <span>Only trust reliable health information sources.</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-app-blue" />
-                    <span>Take medication only as prescribed.</span>
+                    <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-primary" />
+                    <span>Take medication exactly as prescribed.</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-app-blue" />
-                    <span>
-                      Use a drug take-back program to dispose of unused
-                      medication safely.
-                    </span>
+                    <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-primary" />
+                    <span>Use drug take-back programs for unused medication.</span>
                   </li>
                 </ul>
               </article>
