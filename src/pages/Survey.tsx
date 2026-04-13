@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import Nav from "@/components/Nav";
+import Footer from "@/components/Footer";
+import HeroSection from "@/components/HeroSection";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Button } from "@/components/ui/button";
 import {
@@ -832,24 +834,83 @@ function Survey() {
 
   return (
     <>
-      {/* <div className="relative">
-        <Progress
-          value={progress}
-          className="h-1 absolute top-0 left-0 rounded-none"
-        />
-        <div className="flex min-h-dvh flex-col items-center justify-center gap-2 bg-linear-to-b from-secondary/15 via-background to-background p-4 md:p-8">
-          {pages[nav - 1]}
-        </div>
-      </div> */}
       <Nav />
 
-      <ScrollArea className="h-[calc(100dvh-3.75rem)] w-full">
-        <div className="w-full h-[calc(100dvh-3.75rem)] flex flex-col justify-center items-center gap-2">
-          <Link className="w-12 h-12 md:w-10 md:h-10" />
-          <p className="md:text-lg">
-            The survey link would go here when we have it
-          </p>
-        </div>
+      <ScrollArea className="w-full">
+        <main className="bg-background">
+          {/* Hero Section */}
+          <HeroSection
+            badge="Student Survey"
+            headline="Share Your Experience"
+            description="Your anonymous feedback helps us improve resources and support. This short survey takes about 5 minutes to complete."
+            ctaButtons={[{ label: "Start Survey", isPrimary: true }]}
+          />
+
+          {/* Survey Content */}
+          <section className="flex flex-col items-center justify-center py-12 md:py-16 px-4">
+            <div className="bg-card/50 border border-secondary/25 rounded-xl p-8 max-w-2xl text-center">
+              <Link className="w-12 h-12 md:w-16 md:h-16 mx-auto mb-6" />
+              <p className="text-lg font-semibold text-foreground">
+                Survey Coming Soon
+              </p>
+              <p className="mt-3 text-muted-foreground">
+                We're preparing a comprehensive survey to better understand your
+                experiences and health concerns. Check back soon to share your
+                feedback!
+              </p>
+            </div>
+          </section>
+
+          {/* FAQ Section */}
+          <section className="py-12 md:py-16 px-4 border-t border-secondary/25">
+            <div className="mx-auto max-w-4xl">
+              <h2 className="text-2xl font-semibold text-foreground mb-8 text-center">
+                About This Survey
+              </h2>
+              <div className="grid gap-6 md:grid-cols-2">
+                <div className="rounded-xl border border-secondary/25 bg-card/80 p-6">
+                  <h3 className="text-lg font-semibold text-foreground">
+                    Your Privacy Matters
+                  </h3>
+                  <p className="mt-3 text-sm text-muted-foreground">
+                    All responses are completely anonymous and confidential. We
+                    never collect personally identifiable information.
+                  </p>
+                </div>
+                <div className="rounded-xl border border-secondary/25 bg-card/80 p-6">
+                  <h3 className="text-lg font-semibold text-foreground">
+                    Takes 5 Minutes
+                  </h3>
+                  <p className="mt-3 text-sm text-muted-foreground">
+                    Quick, straightforward questions designed to gather
+                    meaningful insights without taking up too much of your time.
+                  </p>
+                </div>
+                <div className="rounded-xl border border-secondary/25 bg-card/80 p-6">
+                  <h3 className="text-lg font-semibold text-foreground">
+                    Helps Our Mission
+                  </h3>
+                  <p className="mt-3 text-sm text-muted-foreground">
+                    Your feedback directly impacts how we develop resources and
+                    support services for your campus community.
+                  </p>
+                </div>
+                <div className="rounded-xl border border-secondary/25 bg-card/80 p-6">
+                  <h3 className="text-lg font-semibold text-foreground">
+                    No Wrong Answers
+                  </h3>
+                  <p className="mt-3 text-sm text-muted-foreground">
+                    We value your honest thoughts, whether you plan or don't
+                    plan to take the survey, share your true perspective.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Footer */}
+          <Footer />
+        </main>
       </ScrollArea>
     </>
   );

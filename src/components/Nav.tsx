@@ -3,20 +3,22 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { NavLink } from "react-router-dom";
 
-const navItems = [
+const mainNavItems = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
   { to: "/resources", label: "Resources" },
-  { to: "/contact", label: "Contact Us" },
   { to: "/survey", label: "Survey" },
+  { to: "/contact", label: "Contact Us" },
 ];
 
 function Nav() {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
 
   const desktopLinkClass = ({ isActive }: { isActive: boolean }) =>
-    `h-full font-semibold border-t-4 flex items-center transition-colors ${
-      isActive ? "border-t-primary text-primary" : "border-t-transparent"
+    `px-3 py-2 font-semibold text-sm transition-colors ${
+      isActive
+        ? "text-primary border-b-2 border-b-primary"
+        : "text-muted-foreground hover:text-foreground"
     }`;
 
   const mobileLinkClass = ({ isActive }: { isActive: boolean }) =>
@@ -28,14 +30,19 @@ function Nav() {
 
   return (
     <>
-      <nav className="fixed z-20 h-15 w-full border-b-2 border-b-accent bg-background px-4">
-        <div className="mx-auto flex h-full max-w-6xl items-center justify-between">
-          <i className="h-full md:text-lg font-bold border-t-4 border-t-transparent flex items-center">
-            SOR-IV
-          </i>
+      {/* Primary navbar */}
+      <nav className="fixed z-20 top-0 w-full border-b border-accent bg-background px-4">
+        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between">
+          {/* Logo placeholder */}
+          <div className="flex-shrink-0">
+            <div className="text-sm md:text-base font-bold text-foreground">
+              SORIV
+            </div>
+          </div>
 
-          <div className="hidden h-full w-[50%] max-w-150 md:flex md:flex-row md:justify-around">
-            {navItems.map((item) => (
+          {/* Desktop main nav */}
+          <div className="hidden h-full md:flex md:flex-row md:items-center md:gap-8">
+            {mainNavItems.map((item) => (
               <NavLink
                 key={item.to}
                 to={item.to}
@@ -47,6 +54,7 @@ function Nav() {
             ))}
           </div>
 
+          {/* Mobile hamburger */}
           <button
             type="button"
             className="inline-flex items-center justify-center rounded-md p-2 text-muted-foreground transition-colors hover:bg-secondary/20 md:hidden"
@@ -58,10 +66,11 @@ function Nav() {
           </button>
         </div>
 
+        {/* Mobile menu */}
         {isMobileOpen && (
-          <div className="border-b-2 border-b-accent bg-background px-4 pb-4 pt-2 md:hidden">
+          <div className="border-t border-accent bg-background px-4 pb-4 pt-2 md:hidden">
             <div className="mx-auto flex max-w-6xl flex-col gap-1">
-              {navItems.map((item) => (
+              {mainNavItems.map((item) => (
                 <NavLink
                   key={item.to}
                   to={item.to}
@@ -76,7 +85,9 @@ function Nav() {
           </div>
         )}
       </nav>
-      <div className="w-full h-15"></div>
+
+      {/* Spacer for fixed navbar */}
+      <div className="w-full h-16"></div>
     </>
   );
 }

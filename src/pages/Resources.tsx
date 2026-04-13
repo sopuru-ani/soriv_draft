@@ -1,5 +1,8 @@
 import React from "react";
 import Nav from "@/components/Nav";
+import Footer from "@/components/Footer";
+import HeroSection from "@/components/HeroSection";
+import CtaStrip from "@/components/CtaStrip";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { LazyImage } from "@/components/LazyImage";
 
@@ -10,54 +13,108 @@ function Resources() {
     <>
       <Nav />
 
-      <ScrollArea className="h-[calc(100dvh-3.75rem)] w-full">
-        <main className="relative overflow-hidden bg-background px-4 pb-20 pt-10 md:px-8 md:pt-16">
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_12%_12%,rgba(68,157,209,0.2),transparent_40%),radial-gradient(circle_at_90%_18%,rgba(244,159,4,0.16),transparent_36%),radial-gradient(circle_at_40%_92%,rgba(11,46,94,0.18),transparent_40%)]" />
-          <div className="pointer-events-none absolute inset-0 opacity-35 [background-image:linear-gradient(to_right,rgba(68,157,209,0.14)_1px,transparent_1px),linear-gradient(to_bottom,rgba(68,157,209,0.14)_1px,transparent_1px)] [background-size:30px_30px] [mask-image:radial-gradient(circle_at_center,black_22%,transparent_82%)]" />
+      <ScrollArea className="w-full">
+        <main className="bg-background">
+          {/* Hero Section */}
+          <HeroSection
+            badge="Resource Library"
+            headline="Resources and Flyers"
+            description="Browse and share these materials to help students recognize risk, respond quickly, and connect to support."
+            ctaButtons={[{ label: "Download All Resources", isPrimary: true }]}
+          />
 
-          <div className="relative mx-auto max-w-6xl">
-            <header className="max-w-3xl">
-              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-primary">
-                Resource Library
-              </p>
-              <h1 className="mt-3 text-4xl font-semibold leading-tight text-foreground md:text-5xl">
-                Resources and Flyers
-              </h1>
-              <p className="mt-4 text-base leading-7 text-muted-foreground md:text-lg">
-                Browse and share these materials to help students recognize
-                risk, respond quickly, and connect to support.
-              </p>
-            </header>
-
-            <section className="mt-10 grid gap-6 md:grid-cols-3">
-              {resources.map((src) => (
-                <LazyImage
-                  key={src}
-                  src={src}
-                  alt="SORIV resource flyer"
-                  wrapperClassName="w-full"
-                  className="w-full object-contain"
-                />
-              ))}
-            </section>
-
-            <section className="mt-12 rounded-2xl border border-secondary/25 bg-gradient-to-r from-secondary/15 via-background to-tertiary/15 p-6 md:p-8">
-              <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-                <div>
-                  <h3 className="text-2xl font-semibold text-foreground">
-                    Need a custom resource?
-                  </h3>
-                  <p className="mt-2 text-base leading-7 text-muted-foreground">
-                    We can tailor materials for campus events, student
-                    trainings, or partner organizations.
-                  </p>
-                </div>
-                <span className="inline-flex items-center rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground">
-                  Email the SORIV team
-                </span>
+          {/* Resource Grid */}
+          <section className="py-12 md:py-16 px-4">
+            <div className="mx-auto max-w-7xl">
+              <h2 className="text-2xl font-semibold text-foreground mb-8">
+                Featured Flyers & Materials
+              </h2>
+              <div className="grid gap-6 md:grid-cols-3">
+                {resources.map((src) => (
+                  <LazyImage
+                    key={src}
+                    src={src}
+                    alt="SORIV resource flyer"
+                    wrapperClassName="w-full"
+                    className="w-full object-contain"
+                  />
+                ))}
               </div>
-            </section>
-          </div>
+            </div>
+          </section>
+
+          {/* CTA: Custom Resources */}
+          <CtaStrip
+            statement="Need a custom resource for your campus event or training?"
+            buttonLabel="Email the SORIV team"
+            buttonHref="mailto:soriv@umes.edu"
+          />
+
+          {/* Additional Resources Section */}
+          <section className="py-12 md:py-16 px-4 border-t border-secondary/25">
+            <div className="mx-auto max-w-7xl">
+              <div className="grid gap-6 md:grid-cols-2">
+                <div className="rounded-xl border border-secondary/25 bg-card/80 p-6">
+                  <h3 className="text-xl font-semibold text-foreground">
+                    External Resources
+                  </h3>
+                  <ul className="mt-4 space-y-3 text-muted-foreground">
+                    <li>
+                      <a href="#" className="text-primary hover:underline">
+                        SAMHSA National Helpline
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="text-primary hover:underline">
+                        Naloxone Distribution Sites
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="text-primary hover:underline">
+                        Recovery Support Services
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="text-primary hover:underline">
+                        Educational Webinars
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="rounded-xl border border-secondary/25 bg-card/80 p-6">
+                  <h3 className="text-xl font-semibold text-foreground">
+                    Quick Reference
+                  </h3>
+                  <ul className="mt-4 space-y-3 text-muted-foreground">
+                    <li>
+                      <a href="#" className="text-primary hover:underline">
+                        Overdose Response Guide
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="text-primary hover:underline">
+                        Naloxone How-To
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="text-primary hover:underline">
+                        Campus Resources Directory
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="text-primary hover:underline">
+                        Student Peer Support Network
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Footer */}
+          <Footer />
         </main>
       </ScrollArea>
     </>
