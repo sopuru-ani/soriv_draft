@@ -15,7 +15,7 @@ function Contact() {
       highlight: "Primary contact",
     },
     {
-      name: "LaKeisha Harris, Ph.D, CRC",
+      name: "LaKeisha Harris, Ph.D., CRC",
       title: "Dean",
       department: "Graduate Studies",
       phone: "410-651-6080",
@@ -25,7 +25,7 @@ function Contact() {
     },
     {
       name: "Angel Cooper",
-      title: "M.S Rehabilitation Counseling",
+      title: "M.S. Rehabilitation Counseling",
       department: "Counselor Education Program",
       email: "ancooper1@umes.edu",
       highlight: "Program support",
@@ -40,97 +40,111 @@ function Contact() {
         <main className="bg-background">
           {/* Hero Section */}
           <HeroSection
-            badge="Contact SORIV"
-            headline="Contact Us"
-            description="Reach out to the SORIV team for resources, collaborations, or support. We respond to inquiries during standard university business hours."
+            badge="SORIV Team"
+            headline="Meet the Team"
+            description="Contact our leadership and program support staff to learn more about the SORIV initiative, partnerships, and student services."
           />
 
-          {/* Contact Cards */}
           <section className="py-12 md:py-16 px-4">
-            <div className="mx-auto max-w-7xl">
-              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                {contacts.map((contact) => (
-                  <article
+            <div className="mx-auto max-w-7xl space-y-10">
+              {contacts.map((contact) => {
+                const initials = contact.name
+                  .split(" ")
+                  .map((word) => word[0])
+                  .slice(0, 2)
+                  .join("");
+
+                return (
+                  <div
                     key={contact.email}
-                    className="rounded-2xl border border-secondary/25 bg-card/80 p-6 shadow-[0_18px_40px_-30px_var(--color-primary)] backdrop-blur-sm"
+                    className="grid gap-6 rounded-[2rem] border border-secondary/25 bg-card/60 p-6 shadow-[0_22px_60px_-40px_var(--color-primary)] md:grid-cols-[minmax(280px,34%)_1fr] md:p-8"
                   >
-                    <div className="flex items-start justify-between gap-4">
-                      <div>
-                        <h2 className="text-lg font-semibold text-foreground">
-                          {contact.name}
-                        </h2>
-                        <p className="mt-1 text-sm font-semibold text-primary">
-                          {contact.title}
-                        </p>
-                        <p className="text-sm text-muted-foreground">
-                          {contact.department}
-                        </p>
+                    <div>
+                      <div className="overflow-hidden rounded-[1.75rem] bg-slate-950 shadow-[0_14px_40px_-30px_rgba(0,0,0,0.4)]">
+                        <div className="aspect-4/5 flex items-center justify-center bg-linear-to-br from-primary/80 via-secondary/80 to-primary/40 text-7xl font-black uppercase tracking-[0.16em] text-white">
+                          {initials}
+                        </div>
                       </div>
-                      <span className="inline-flex items-center rounded-full border border-tertiary/40 bg-tertiary/15 px-3 py-1 text-xs font-semibold text-tertiary-foreground">
-                        {contact.highlight}
-                      </span>
                     </div>
 
-                    <div className="mt-4 space-y-2 text-sm text-muted-foreground">
-                      {contact.phone ? (
+                    <div className="rounded-[1.75rem] bg-secondary/95 p-8 text-white shadow-[0_18px_40px_-30px_rgba(0,0,0,0.4)]">
+                      <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                        <div>
+                          <h2 className="text-3xl font-semibold text-white">
+                            {contact.name}
+                          </h2>
+                          <p className="mt-2 text-sm font-semibold text-primary">
+                            {contact.title}
+                          </p>
+                          <p className="mt-1 text-sm text-white/80">
+                            {contact.department}
+                          </p>
+                        </div>
+                        <span className="mt-4 inline-flex items-center rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-white/90 sm:mt-0">
+                          {contact.highlight}
+                        </span>
+                      </div>
+
+                      <div className="mt-8 grid gap-4 text-sm text-white/90">
+                        {contact.phone ? (
+                          <p>
+                            <span className="font-semibold text-white">
+                              Phone:
+                            </span>{" "}
+                            <a
+                              href={`tel:${contact.phone}`}
+                              className="text-white hover:text-primary"
+                            >
+                              {contact.phone}
+                            </a>
+                          </p>
+                        ) : null}
+                        {contact.fax ? (
+                          <p>
+                            <span className="font-semibold text-white">
+                              Fax:
+                            </span>{" "}
+                            {contact.fax}
+                          </p>
+                        ) : null}
                         <p>
-                          <span className="font-semibold text-foreground">
-                            Phone:
+                          <span className="font-semibold text-white">
+                            Email:
                           </span>{" "}
                           <a
-                            href={`tel:${contact.phone}`}
-                            className="hover:text-primary"
+                            href={`mailto:${contact.email}`}
+                            className="text-white hover:text-primary underline"
                           >
-                            {contact.phone}
+                            {contact.email}
                           </a>
                         </p>
-                      ) : null}
-                      {contact.fax ? (
-                        <p>
-                          <span className="font-semibold text-foreground">
-                            Fax:
-                          </span>{" "}
-                          {contact.fax}
-                        </p>
-                      ) : null}
-                      <p>
-                        <span className="font-semibold text-foreground">
-                          Email:
-                        </span>{" "}
-                        <a
-                          href={`mailto:${contact.email}`}
-                          className="text-primary hover:underline"
-                        >
-                          {contact.email}
-                        </a>
-                      </p>
+                      </div>
                     </div>
-                  </article>
-                ))}
-              </div>
+                  </div>
+                );
+              })}
             </div>
           </section>
 
-          {/* General Inquiries Section */}
-          <section className="py-12 md:py-16 px-4 border-t border-secondary/25 bg-card/30">
+          <section className="border-t border-secondary/25 bg-card/30 py-12 md:py-16 px-4">
             <div className="mx-auto max-w-4xl text-center">
               <h2 className="text-3xl font-semibold text-foreground">
                 General Inquiries
               </h2>
-              <p className="mt-4 text-lg text-muted-foreground">
-                Have a question? Send us an email and we'll get back to you as
-                soon as possible.
+              <p className="mt-4 text-lg leading-8 text-muted-foreground">
+                For general questions about the SORIV initiative, partnerships,
+                or events, send us a direct email and we’ll connect you with the
+                right person.
               </p>
               <a
                 href="mailto:soriv@umes.edu"
-                className="mt-6 inline-flex items-center rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:-translate-y-0.5 transition-all duration-300 shadow-[0_12px_28px_-16px_var(--color-primary)]"
+                className="mt-6 inline-flex items-center rounded-full bg-primary px-8 py-3 text-sm font-semibold text-primary-foreground transition duration-300 hover:-translate-y-0.5 shadow-[0_12px_28px_-16px_var(--color-primary)]"
               >
-                Email SORIV Team
+                Email the SORIV Team
               </a>
             </div>
           </section>
 
-          {/* Footer */}
           <Footer />
         </main>
       </ScrollArea>

@@ -23,21 +23,25 @@ function Resources() {
             ctaButtons={[{ label: "Download All Resources", isPrimary: true }]}
           />
 
-          {/* Resource Grid */}
+          {/* Resource Layout */}
           <section className="py-12 md:py-16 px-4">
             <div className="mx-auto max-w-7xl">
               <h2 className="text-2xl font-semibold text-foreground mb-8">
                 Featured Flyers & Materials
               </h2>
-              <div className="grid gap-6 md:grid-cols-3">
+              <div className="grid gap-8">
                 {resources.map((src) => (
-                  <LazyImage
+                  <div
                     key={src}
-                    src={src}
-                    alt="SORIV resource flyer"
-                    wrapperClassName="w-full"
-                    className="w-full object-contain"
-                  />
+                    className="overflow-hidden rounded-[2rem] border border-secondary/25 bg-card/80 p-4 shadow-[0_20px_60px_-40px_var(--color-primary)]"
+                  >
+                    <LazyImage
+                      src={src}
+                      alt="SORIV resource flyer"
+                      wrapperClassName="w-full"
+                      className="w-full object-contain"
+                    />
+                  </div>
                 ))}
               </div>
             </div>
@@ -53,7 +57,7 @@ function Resources() {
           {/* Additional Resources Section */}
           <section className="py-12 md:py-16 px-4 border-t border-secondary/25">
             <div className="mx-auto max-w-7xl">
-              <div className="grid gap-6 md:grid-cols-2">
+              <div className="grid gap-6">
                 <div className="rounded-xl border border-secondary/25 bg-card/80 p-6">
                   <h3 className="text-xl font-semibold text-foreground">
                     External Resources
