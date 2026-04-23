@@ -1,0 +1,75 @@
+Internship Progress Report
+SORIV Opioid Awareness Website - App Breakdown
+
+1. Overall architecture
+- The app is a React SPA built with TypeScript.
+- Routing is handled by react-router-dom using BrowserRouter in src/App.tsx.
+- All routes are defined in src/AppRoutes.tsx, with a shared wrapper (Layout in src/pages/Layout.tsx) that renders the active page via <Outlet />.
+
+2. Main pages
+The site has five main pages:
+- / → src/pages/Home.tsx
+- /about → src/pages/About.tsx
+- /resources → src/pages/Resources.tsx
+- /survey → src/pages/Survey.tsx
+- /contact → src/pages/Contact.tsx
+
+3. Home page
+- src/pages/Home.tsx is the landing page.
+- It includes:
+  - a hero banner with a background image and CTA buttons
+  - a sidebar navigation for page sections
+  - content sections for opioid awareness, warning signs, response steps, prevention, and why SORIV matters
+  - image content loaded through a reusable LazyImage component
+- It ends with a Footer component.
+
+4. About page
+- src/pages/About.tsx
+- Shares the hero layout and page structure with Home.
+- Describes the SORIV initiative, collaboration, student opportunity, and mission.
+- Uses cards, images, and list-based content to explain project purpose and partners.
+
+5. Resources page
+- src/pages/Resources.tsx
+- Displays downloadable flyer/resource images from local assets (/flyer-1.png, /flyer-2.png, /flyer-3.png).
+- Includes an email CTA strip to contact the SORIV team.
+- Also lists external resources and quick-reference links.
+
+6. Survey page
+- src/pages/Survey.tsx
+- Adds interactive state with React useState.
+- Implements a multi-step survey flow over 10 pages with progress tracking.
+- Uses custom UI components: Card, RadioGroup, Checkbox, Textarea, Progress.
+- Survey logic includes multi-select handling, exclusive “Prefer not to say” behavior, and next/previous navigation.
+
+7. Contact page
+- src/pages/Contact.tsx
+- Uses a hero section plus contact cards for key people.
+- Presents email, phone, fax, and highlights program support contacts.
+- Includes a general inquiries CTA.
+
+8. Shared components
+Important reusable UI pieces:
+- src/components/Nav.tsx: site navigation with desktop links and a mobile hamburger menu.
+- src/components/Footer.tsx: site footer with links, contact info, and social icons.
+- src/components/HeroSection.tsx: flexible hero banner used on nearly every page.
+- src/components/CtaStrip.tsx: call-to-action section.
+- src/components/MissionBlock.tsx: stylized mission/content block.
+- src/components/WhyChooseUsBlock.tsx: reasons/feature list section.
+- src/components/LazyImage.tsx: lazy image loader with skeleton placeholder.
+
+9. Visual and UI system
+- Styling is done via Tailwind-like utility classes directly in JSX.
+- The project uses an internal ui component library under src/components/ui/* for shared form controls and layout helpers.
+- No direct code edits were made.
+
+10. How it supports the internship project
+- The website is clearly designed as an awareness and education portal.
+- It combines:
+  - informational content (Home, About)
+  - resource distribution (Resources)
+  - community feedback/data collection (Survey)
+  - program contact/support access (Contact)
+- The React architecture supports maintainability and reuse through shared components and consistent page layout.
+
+If needed, this summary can be used directly in your report as the app description and functionality section.
