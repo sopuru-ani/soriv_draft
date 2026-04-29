@@ -20,7 +20,7 @@ function Home() {
               badge="SORIV Education Hub"
               headline="Real talk about opioids, risk, and how to protect your people."
               description="Quick, clear, and student-friendly info for spotting warning signs early, reducing harm, and getting support fast on campus and in your community."
-              backgroundImageUrl="/THE_OPIOID_EPIDEMIC.jpg"
+              backgroundImageUrl="/drugneedle.jpg"
               ctaButtons={[
                 { label: "Explore Resources", isPrimary: true },
                 { label: "Take the Survey", isPrimary: false },
@@ -102,7 +102,7 @@ function Home() {
             <article className="space-y-14">
               <section
                 id="intro"
-                className="rounded-[2rem] border border-secondary/25 bg-card/80 p-8 shadow-[0_22px_66px_-44px_var(--color-primary)]"
+                className="scroll-mt-28 rounded-[2rem] border border-secondary/25 bg-card/80 p-8 shadow-[0_22px_66px_-44px_var(--color-primary)]"
               >
                 <div className="grid gap-8 lg:grid-cols-[1.2fr_0.9fr] lg:items-center">
                   <div>
@@ -147,7 +147,7 @@ function Home() {
 
               <section
                 id="why-this-matters"
-                className="rounded-[2rem] border border-secondary/25 bg-card/80 p-8 shadow-[0_22px_66px_-44px_var(--color-primary)]"
+                className="scroll-mt-28 rounded-[2rem] border border-secondary/25 bg-card/80 p-8 shadow-[0_22px_66px_-44px_var(--color-primary)]"
               >
                 <h2 className="text-3xl font-semibold text-foreground">
                   Why this matters right now
@@ -162,7 +162,7 @@ function Home() {
 
               <section
                 id="what-are-opioids"
-                className="rounded-[2rem] border border-secondary/25 bg-card/80 p-8 shadow-[0_22px_66px_-44px_var(--color-primary)]"
+                className="scroll-mt-28 rounded-[2rem] border border-secondary/25 bg-card/80 p-8 shadow-[0_22px_66px_-44px_var(--color-primary)]"
               >
                 <h2 className="text-3xl font-semibold text-foreground">
                   What are opioids?
@@ -177,7 +177,7 @@ function Home() {
 
               <section
                 id="signs-and-response"
-                className="grid gap-6 lg:grid-cols-2"
+                className="scroll-mt-28 grid gap-6 lg:grid-cols-2"
               >
                 <article className="rounded-[2rem] border border-secondary/25 bg-card/80 p-8 shadow-[0_22px_66px_-44px_var(--color-primary)]">
                   <h2 className="text-3xl font-semibold text-foreground">
@@ -220,7 +220,7 @@ function Home() {
 
               <section
                 id="prevention"
-                className="rounded-[2rem] border border-secondary/25 bg-card/80 p-8 shadow-[0_22px_66px_-44px_var(--color-primary)]"
+                className="scroll-mt-28 rounded-[2rem] border border-secondary/25 bg-card/80 p-8 shadow-[0_22px_66px_-44px_var(--color-primary)]"
               >
                 <MissionBlock
                   heading="Prevention beats panic."
@@ -229,7 +229,10 @@ function Home() {
                 />
               </section>
 
-              <section id="why-soriv-matters" className="space-y-6">
+              <section
+                id="why-soriv-matters"
+                className="scroll-mt-28 space-y-6"
+              >
                 <WhyChooseUsBlock
                   heading="Why SORIV Matters"
                   subheading="Supporting your health and safety every step of the way"

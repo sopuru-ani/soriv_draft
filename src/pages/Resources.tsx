@@ -7,7 +7,13 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { LazyImage } from "@/components/LazyImage";
 
 function Resources() {
-  const resources = ["/flyer-1.png", "/flyer-2.png", "/flyer-3.png"];
+  const resources = [
+    "/flyer-1.png",
+    "/flyer-2.png",
+    "/flyer-3.png",
+    "/save-a-life.png",
+    "/not-alone.png",
+  ];
 
   return (
     <>

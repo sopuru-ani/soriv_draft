@@ -19,7 +19,7 @@ function About() {
               badge="About SORIV"
               headline="Supporting students, recovery, and community through education."
               description="SORIV brings together behavioral health expertise, student leadership, and digital tools to increase opioid awareness, connect people to care, and strengthen campus-community support."
-              backgroundImageUrl="/THE_OPIOID_EPIDEMIC.jpg"
+              backgroundImageUrl="/drugneedle.jpg"
             />
             <div className="mx-auto max-w-7xl px-4 pb-8 text-sm text-muted-foreground">
               <nav className="flex flex-wrap gap-2 text-xs uppercase tracking-[0.22em]">
@@ -97,7 +97,7 @@ function About() {
             <article className="space-y-14">
               <section
                 id="about-soriv"
-                className="rounded-[2rem] border border-secondary/25 bg-card/80 p-8 shadow-[0_22px_66px_-44px_var(--color-primary)]"
+                className="scroll-mt-28 rounded-[2rem] border border-secondary/25 bg-card/80 p-8 shadow-[0_22px_66px_-44px_var(--color-primary)]"
               >
                 <h2 className="text-3xl font-semibold text-foreground">
                   About SORIV
@@ -119,7 +119,7 @@ function About() {
 
               <section
                 id="unique-collaboration"
-                className="rounded-[2rem] border border-secondary/25 bg-card/80 p-8 shadow-[0_22px_66px_-44px_var(--color-primary)]"
+                className="scroll-mt-28 rounded-[2rem] border border-secondary/25 bg-card/80 p-8 shadow-[0_22px_66px_-44px_var(--color-primary)]"
               >
                 <h2 className="text-3xl font-semibold text-foreground">
                   A Unique Collaboration
@@ -159,7 +159,7 @@ function About() {
 
               <section
                 id="opportunity"
-                className="rounded-[2rem] border border-secondary/25 bg-card/80 p-8 shadow-[0_22px_66px_-44px_var(--color-primary)]"
+                className="scroll-mt-28 rounded-[2rem] border border-secondary/25 bg-card/80 p-8 shadow-[0_22px_66px_-44px_var(--color-primary)]"
               >
                 <div className="grid gap-8 lg:grid-cols-[1fr_1.2fr] lg:items-center">
                   <div>
@@ -203,7 +203,7 @@ function About() {
 
               <section
                 id="get-involved"
-                className="rounded-[2rem] border border-secondary/25 bg-card/80 p-8 shadow-[0_22px_66px_-44px_var(--color-primary)]"
+                className="scroll-mt-28 rounded-[2rem] border border-secondary/25 bg-card/80 p-8 shadow-[0_22px_66px_-44px_var(--color-primary)]"
               >
                 <div className="grid gap-8 lg:grid-cols-[1.2fr_1fr] lg:items-center">
                   <div>
@@ -241,7 +241,7 @@ function About() {
                 </div>
               </section>
 
-              <section id="mission" className="space-y-6">
+              <section id="mission" className="scroll-mt-28 space-y-6">
                 <MissionBlock
                   heading="Our Mission"
                   content="SORIV is committed to empowering students and communities with evidence-based information, accessible resources, and meaningful support pathways to reduce opioid-related harm and promote recovery."
@@ -249,7 +249,10 @@ function About() {
                 />
               </section>
 
-              <section id="why-this-approach" className="space-y-6">
+              <section
+                id="why-this-approach"
+                className="scroll-mt-28 space-y-6"
+              >
                 <WhyChooseUsBlock
                   heading="Why This Approach Works"
                   subheading="Built by students, for students"
