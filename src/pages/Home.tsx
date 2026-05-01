@@ -23,7 +23,11 @@ function Home() {
               backgroundImageUrl="/drugneedle.jpg"
               ctaButtons={[
                 { label: "Explore Resources", isPrimary: true },
-                { label: "Take the Survey", isPrimary: false },
+                {
+                  label: "Take the Survey",
+                  isPrimary: false,
+                  href: "https://forms.cloud.microsoft/r/AbAbkgpjHP?origin=lprLink",
+                },
               ]}
             />
             <div className="mx-auto max-w-7xl px-4 pb-8 text-sm text-muted-foreground">

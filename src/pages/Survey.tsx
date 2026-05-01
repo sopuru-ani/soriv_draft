@@ -839,22 +839,19 @@ function Survey() {
       <ScrollArea className="w-full">
         <main className="bg-background">
           {/* Hero Section */}
+
           <HeroSection
             badge="Student Survey"
             headline="Share Your Experience"
             description="Your anonymous feedback helps us improve resources and support. This short survey takes about 5 minutes to complete."
-          ctaButtons={[
-            {
-              label: "Start Survey",
-              isPrimary: true,
-              onClick: () =>
-                window.open(
-                  "https://forms.cloud.microsoft/r/AbAbkgpjHP?origin=lprLink",
-                  "_blank",
-                ),
-            },
-          ]}
-        />
+            ctaButtons={[
+              {
+                label: "Start Survey",
+                isPrimary: true,
+                href: "https://forms.cloud.microsoft/r/AbAbkgpjHP?origin=lprLink",
+              },
+            ]}
+          />
 
           {/* Survey Content */}
           {false && (
@@ -865,14 +862,14 @@ function Survey() {
                   Survey Coming Soon
                 </p>
                 <p className="mt-3 text-muted-foreground">
-                  We're preparing a comprehensive survey to better understand your
-                  experiences and health concerns. Check back soon to share your
-                  feedback!
+                  We're preparing a comprehensive survey to better understand
+                  your experiences and health concerns. Check back soon to share
+                  your feedback!
                 </p>
               </div>
             </section>
           )}
-    
+
           {/* FAQ Section */}
           <section className="py-12 md:py-16 px-4 border-t border-secondary/25">
             <div className="mx-auto max-w-4xl">
