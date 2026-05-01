@@ -843,24 +843,36 @@ function Survey() {
             badge="Student Survey"
             headline="Share Your Experience"
             description="Your anonymous feedback helps us improve resources and support. This short survey takes about 5 minutes to complete."
-            ctaButtons={[{ label: "Start Survey", isPrimary: true }]}
-          />
+          ctaButtons={[
+            {
+              label: "Start Survey",
+              isPrimary: true,
+              onClick: () =>
+                window.open(
+                  "https://forms.cloud.microsoft/r/AbAbkgpjHP?origin=lprLink",
+                  "_blank",
+                ),
+            },
+          ]}
+        />
 
           {/* Survey Content */}
-          <section className="flex flex-col items-center justify-center py-12 md:py-16 px-4">
-            <div className="bg-card/50 border border-secondary/25 rounded-xl p-8 max-w-2xl text-center">
-              <Link className="w-12 h-12 md:w-16 md:h-16 mx-auto mb-6" />
-              <p className="text-lg font-semibold text-foreground">
-                Survey Coming Soon
-              </p>
-              <p className="mt-3 text-muted-foreground">
-                We're preparing a comprehensive survey to better understand your
-                experiences and health concerns. Check back soon to share your
-                feedback!
-              </p>
-            </div>
-          </section>
-
+          {false && (
+            <section className="flex flex-col items-center justify-center py-12 md:py-16 px-4">
+              <div className="bg-card/50 border border-secondary/25 rounded-xl p-8 max-w-2xl text-center">
+                <Link className="w-12 h-12 md:w-16 md:h-16 mx-auto mb-6" />
+                <p className="text-lg font-semibold text-foreground">
+                  Survey Coming Soon
+                </p>
+                <p className="mt-3 text-muted-foreground">
+                  We're preparing a comprehensive survey to better understand your
+                  experiences and health concerns. Check back soon to share your
+                  feedback!
+                </p>
+              </div>
+            </section>
+          )}
+    
           {/* FAQ Section */}
           <section className="py-12 md:py-16 px-4 border-t border-secondary/25">
             <div className="mx-auto max-w-4xl">
