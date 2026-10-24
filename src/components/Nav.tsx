@@ -17,7 +17,7 @@ function Nav() {
   const desktopLinkClass = ({ isActive }: { isActive: boolean }) =>
     `px-3 py-2 font-semibold text-sm transition-colors ${
       isActive
-        ? "text-primary border-b-2 border-b-primary"
+        ? "text-primary"
         : "text-muted-foreground hover:text-foreground"
     }`;
 
@@ -42,15 +42,19 @@ function Nav() {
 
           {/* Desktop main nav */}
           <div className="hidden h-full md:flex md:flex-row md:items-center md:gap-8">
-            {mainNavItems.map((item) => (
-              <NavLink
-                key={item.to}
-                to={item.to}
-                className={desktopLinkClass}
-                end={item.to === "/"}
-              >
-                {item.label}
-              </NavLink>
+            {mainNavItems.map((item, index) => (
+              <React.Fragment key={item.to}>
+                <NavLink
+                  to={item.to}
+                  className={desktopLinkClass}
+                  end={item.to === "/"}
+                >
+                  {item.label}
+                </NavLink>
+                {index < mainNavItems.length - 1 && (
+                  <span aria-hidden className="h-4 w-px bg-border" />
+                )}
+              </React.Fragment>
             ))}
           </div>
 
