@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -834,8 +833,6 @@ function Survey() {
 
   return (
     <>
-      <Nav />
-
       <ScrollArea className="w-full">
         <main className="bg-background">
           {/* Hero Section */}

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -40,14 +39,12 @@ function ProfileImage({ src, name }: ProfileImageProps) {
 function Contact() {
   return (
     <>
-      <Nav />
-
       <ScrollArea className="w-full">
         <main className="bg-background">
           <HeroSection
-            badge="SORIV Team"
+            badge="SOR IV Team"
             headline="Meet the Team"
-            description="Contact our leadership and program support staff to learn more about the SORIV initiative, partnerships, and student services."
+            description="Contact our leadership and program support staff to learn more about the SOR IV initiative, partnerships, and student services."
           />
 
           <section className="py-12 md:py-16 px-4">

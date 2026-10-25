@@ -6,7 +6,7 @@ function Nav() {
       {/* <nav className="w-full px-4 flex md:flex-row md:justify-between items-center border-b-2 border-b-accent">
         <div>
           <i className="py-4 md:text-lg font-bold border-t-4 border-t-transparent">
-            SOR-IV
+            SOR IV
           </i>
         </div>
         <div className="w-[50%] max-w-150 flex md:flex-row md:justify-around">
@@ -40,7 +40,7 @@ function Nav() {
       <nav className="w-full h-15 bg-background z-2 px-4 flex md:flex-row md:justify-between items-center border-b-2 border-b-accent fixed">
         <div className="h-full">
           <i className="h-full md:text-lg font-bold border-t-4 border-t-transparent flex items-center">
-            SOR-IV
+            SOR IV
           </i>
         </div>
         <div className="w-[50%] h-full max-w-150 flex md:flex-row md:justify-around">

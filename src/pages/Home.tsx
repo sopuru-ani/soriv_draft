@@ -1,5 +1,5 @@
 import React from "react";
-import Nav from "@/components/Nav";
+import { Link } from "react-router-dom";
 import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
 import TwoColumnSection from "@/components/TwoColumnSection";
@@ -12,12 +12,11 @@ import { LazyImage } from "@/components/LazyImage";
 function Home() {
   return (
     <>
-      <Nav />
       <ScrollArea className="w-full">
         <main className="bg-background">
           <section className="relative overflow-hidden">
             <HeroSection
-              badge="SORIV Education Hub"
+              badge="SOR IV Education Hub"
               headline="Real talk about opioids, risk, and how to protect your people."
               description="Quick, clear, and student-friendly info for spotting warning signs early, reducing harm, and getting support fast on campus and in your community."
               backgroundImageUrl="/drugneedle.jpg"
@@ -30,7 +29,7 @@ function Home() {
                 },
               ]}
             />
-            <div className="mx-auto max-w-7xl px-4 pb-8 text-sm text-muted-foreground">
+            <div className="mx-auto max-w-7xl px-4 pt-8 pb-8 text-sm text-muted-foreground">
               <nav className="flex flex-wrap gap-2 text-xs uppercase tracking-[0.22em]">
                 <a
                   href="/"
@@ -93,10 +92,18 @@ function Home() {
                   </li>
                   <li>
                     <a
-                      href="#why-soriv-matters"
+                      href="#why-sor-iv-matters"
                       className="block rounded-xl px-3 py-2 text-foreground hover:bg-secondary/10 hover:text-primary"
                     >
-                      Why SORIV Matters
+                      Why SOR IV Matters
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#where-are-you-at"
+                      className="block rounded-xl px-3 py-2 text-foreground hover:bg-secondary/10 hover:text-primary"
+                    >
+                      Where Are You At?
                     </a>
                   </li>
                 </ul>
@@ -111,14 +118,14 @@ function Home() {
                 <div className="grid gap-8 lg:grid-cols-[1.2fr_0.9fr] lg:items-center">
                   <div>
                     <p className="text-sm font-semibold uppercase tracking-[0.24em] text-primary">
-                      Discover SORIV
+                      Discover SOR IV
                     </p>
                     <h2 className="mt-4 text-4xl font-semibold text-foreground sm:text-5xl">
                       Real talk about opioids, risk, and how to protect your
                       people.
                     </h2>
                     <p className="mt-6 text-lg leading-8 text-muted-foreground">
-                      SORIV delivers concise, student-friendly guidance so
+                      SOR IV delivers concise, student-friendly guidance so
                       students, friends, and campus communities can recognize
                       warning signs early and act quickly to reduce harm.
                     </p>
@@ -158,7 +165,7 @@ function Home() {
                 </h2>
                 <p className="mt-5 text-lg leading-8 text-muted-foreground">
                   The opioid crisis impacts students, families, and campus
-                  communities directly. SORIV helps people respond with
+                  communities directly. SOR IV helps people respond with
                   confidence, connect to support, and reduce the risk of harm
                   before it becomes a tragedy.
                 </p>
@@ -234,11 +241,11 @@ function Home() {
               </section>
 
               <section
-                id="why-soriv-matters"
+                id="why-sor-iv-matters"
                 className="scroll-mt-28 space-y-6"
               >
                 <WhyChooseUsBlock
-                  heading="Why SORIV Matters"
+                  heading="Why SOR IV Matters"
                   subheading="Supporting your health and safety every step of the way"
                   items={[
                     "Provides easy access to relevant behavioral health resources.",
@@ -248,6 +255,34 @@ function Home() {
                 />
               </section>
             </article>
+          </section>
+
+          <section
+            id="where-are-you-at"
+            className="scroll-mt-28 border-t border-secondary/25 px-4 py-12 md:py-16"
+          >
+            <div className="mx-auto max-w-4xl rounded-[2rem] border border-secondary/25 bg-card/80 p-8 shadow-[0_22px_66px_-44px_var(--color-primary)] md:p-12">
+              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-primary">
+                Self-check
+              </p>
+              <h2 className="mt-4 text-3xl font-semibold text-foreground sm:text-4xl">
+                Where are you at?
+              </h2>
+              <p className="mt-4 max-w-2xl text-lg leading-8 text-muted-foreground">
+                A short readiness-to-change check: 18 true/false statements
+                about how you feel today. It is a self-reflection tool, not a
+                diagnosis, and your answers stay in your browser for now.
+              </p>
+              <p className="mt-3 text-sm font-medium text-foreground">
+                Takes about 3–5 minutes.
+              </p>
+              <Link
+                to="/where-are-you-at"
+                className="mt-8 inline-flex rounded-lg bg-primary px-8 py-3 font-semibold text-primary-foreground shadow-[0_12px_28px_-16px_var(--color-primary)] transition-all duration-300 hover:-translate-y-0.5"
+              >
+                Where are you at?
+              </Link>
+            </div>
           </section>
 
           <Footer />

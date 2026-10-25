@@ -1,10 +1,9 @@
 import React from "react";
-import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
 import CtaStrip from "@/components/CtaStrip";
+import ResourceSlideshow from "@/components/ResourceSlideshow";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { LazyImage } from "@/components/LazyImage";
 
 function Resources() {
   const resources = [
@@ -17,8 +16,6 @@ function Resources() {
 
   return (
     <>
-      <Nav />
-
       <ScrollArea className="w-full">
         <main className="bg-background">
           {/* Hero Section */}
@@ -35,28 +32,14 @@ function Resources() {
               <h2 className="text-2xl font-semibold text-foreground mb-8">
                 Featured Flyers & Materials
               </h2>
-              <div className="grid gap-8">
-                {resources.map((src) => (
-                  <div
-                    key={src}
-                    className="overflow-hidden rounded-[2rem] border border-secondary/25 bg-card/80 p-4 shadow-[0_20px_60px_-40px_var(--color-primary)]"
-                  >
-                    <LazyImage
-                      src={src}
-                      alt="SORIV resource flyer"
-                      wrapperClassName="w-full"
-                      className="w-full object-contain"
-                    />
-                  </div>
-                ))}
-              </div>
+              <ResourceSlideshow images={resources} />
             </div>
           </section>
 
           {/* CTA: Custom Resources */}
           <CtaStrip
             statement="Need a custom resource for your campus event or training?"
-            buttonLabel="Email the SORIV team"
+            buttonLabel="Email the SOR IV team"
             buttonHref="mailto:soriv@umes.edu"
           />
 
