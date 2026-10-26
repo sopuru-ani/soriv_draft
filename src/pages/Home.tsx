@@ -18,11 +18,13 @@ function Home() {
               description="Quick, clear, and student-friendly info for spotting warning signs early, reducing harm, and getting support fast on campus and in your community."
               backgroundImageUrl="/drugneedle.jpg"
               ctaButtons={[
-                { label: "Explore Resources", isPrimary: true },
+                { label: "Explore Resources", isPrimary: true, href: "/resources" },
                 {
                   label: "Take the Survey",
                   isPrimary: false,
-                  href: "https://forms.cloud.microsoft/r/AbAbkgpjHP?origin=lprLink",
+                  href: "/survey",
+                  // Microsoft Form (parked):
+                  // href: "https://forms.cloud.microsoft/r/AbAbkgpjHP?origin=lprLink",
                 },
               ]}
             />

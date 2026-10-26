@@ -18,7 +18,7 @@ function ProfileImage({ src, name }: ProfileImageProps) {
     .join("");
 
   return (
-    <div className="aspect-square w-full self-start overflow-hidden rounded-2xl bg-muted">
+    <div className="aspect-square w-full self-start overflow-hidden rounded-xl bg-muted shadow-[0_0_16px_rgba(10,10,10,0.14)]">
       {!error && src ? (
         <img
           src={src}
@@ -76,7 +76,7 @@ function Contact() {
           <section className="px-4 py-12 md:py-16">
             <div className="mx-auto max-w-3xl">
               <PersonRow
-                src="/DrKimberlyPooleSykes.webp"
+                src="/Kimberly Poole-Sykes _pp.jpg"
                 name="Dr. Kimberly Poole-Sykes"
                 title="Chair and Professor"
                 department="Department of Education"
@@ -132,7 +132,7 @@ function Contact() {
               </PersonRow>
 
               <PersonRow
-                src="/images/cooper.jpg"
+                src="/Angel Cooper Headshot.jpeg"
                 name="Angel Cooper"
                 title="M.S. Rehabilitation Counseling"
                 department="Counselor Education Program"

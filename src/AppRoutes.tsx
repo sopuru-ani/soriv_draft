@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Survey from "./pages/Survey";
+import SurveyForm from "./pages/SurveyForm";
 import Resources from "./pages/Resources";
 import StagesAssessment from "./pages/stages/StagesAssessment";
 
@@ -21,6 +22,7 @@ function AppRoutes() {
           <Route path={"/resources"} element={<Resources />}></Route>
         </Route>
         <Route element={<BareLayout />}>
+          <Route path="/survey/take" element={<SurveyForm />} />
           <Route
             path="/where-are-you-at"
             element={<StagesAssessment />}
