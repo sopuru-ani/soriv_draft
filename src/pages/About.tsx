@@ -3,13 +3,10 @@ import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
 import MissionBlock from "@/components/MissionBlock";
 import WhyChooseUsBlock from "@/components/WhyChooseUsBlock";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import { LazyImage } from "@/components/LazyImage";
 
 function About() {
   return (
-    <>
-      <ScrollArea className="w-full">
         <main className="bg-background">
           <section className="relative overflow-hidden">
             <HeroSection
@@ -34,7 +31,7 @@ function About() {
 
           <section className="mx-auto max-w-7xl px-4 pb-16 pt-6 lg:grid lg:grid-cols-[280px_minmax(0,1fr)] lg:gap-10">
             <aside className="hidden lg:block">
-              <div className="sticky top-28 space-y-6 rounded-3xl border border-secondary/25 bg-card/80 p-6 shadow-[0_24px_80px_-56px_var(--color-primary)]">
+              <div className="sticky top-28 space-y-6">
                 <h2 className="text-xl font-semibold text-foreground">
                   About SOR IV
                 </h2>
@@ -92,13 +89,11 @@ function About() {
             </aside>
 
             <article className="space-y-14">
-              <section
-                id="about-sor-iv"
-                className="scroll-mt-28 rounded-[2rem] border border-secondary/25 bg-card/80 p-8 shadow-[0_22px_66px_-44px_var(--color-primary)]"
-              >
+              <section id="about-sor-iv" className="scroll-mt-28">
                 <h2 className="text-3xl font-semibold text-foreground">
                   About SOR IV
                 </h2>
+                <div className="mt-6 h-1 max-w-48 rounded-full bg-gradient-to-r from-primary via-secondary to-tertiary" />
                 <p className="mt-5 text-lg leading-8 text-muted-foreground">
                   The SOR IV Project bridges behavioral health, student
                   leadership, and practical digital tools so individuals and
@@ -114,13 +109,11 @@ function About() {
                 </p>
               </section>
 
-              <section
-                id="unique-collaboration"
-                className="scroll-mt-28 rounded-[2rem] border border-secondary/25 bg-card/80 p-8 shadow-[0_22px_66px_-44px_var(--color-primary)]"
-              >
+              <section id="unique-collaboration" className="scroll-mt-28">
                 <h2 className="text-3xl font-semibold text-foreground">
                   A Unique Collaboration
                 </h2>
+                <div className="mt-6 h-1 max-w-48 rounded-full bg-gradient-to-r from-primary via-secondary to-tertiary" />
                 <p className="mt-5 text-lg leading-8 text-muted-foreground">
                   Counseling Education and Computer Science students are
                   building tools together to create practical, community-facing
@@ -154,10 +147,7 @@ function About() {
                 </ul>
               </section>
 
-              <section
-                id="opportunity"
-                className="scroll-mt-28 rounded-[2rem] border border-secondary/25 bg-card/80 p-8 shadow-[0_22px_66px_-44px_var(--color-primary)]"
-              >
+              <section id="opportunity" className="scroll-mt-28">
                 <div className="grid gap-8 lg:grid-cols-[1fr_1.2fr] lg:items-center">
                   <div>
                     <LazyImage
@@ -171,6 +161,7 @@ function About() {
                     <h2 className="text-3xl font-semibold text-foreground">
                       Opportunity for Counseling Education Students
                     </h2>
+                    <div className="mt-6 h-1 max-w-48 rounded-full bg-gradient-to-r from-primary via-secondary to-tertiary" />
                     <p className="mt-5 text-lg leading-8 text-muted-foreground">
                       Counseling Education students are encouraged to apply for
                       the SOR IV Grant Initiative. This work provides hands-on
@@ -198,15 +189,13 @@ function About() {
                 </div>
               </section>
 
-              <section
-                id="get-involved"
-                className="scroll-mt-28 rounded-[2rem] border border-secondary/25 bg-card/80 p-8 shadow-[0_22px_66px_-44px_var(--color-primary)]"
-              >
+              <section id="get-involved" className="scroll-mt-28">
                 <div className="grid gap-8 lg:grid-cols-[1.2fr_1fr] lg:items-center">
                   <div>
                     <h2 className="text-3xl font-semibold text-foreground">
                       Get Involved. Make an Impact. Be Part of the Solution.
                     </h2>
+                    <div className="mt-6 h-1 max-w-48 rounded-full bg-gradient-to-r from-primary via-secondary to-tertiary" />
                     <p className="mt-5 text-lg leading-8 text-muted-foreground">
                       Our goal is a stronger, more informed community through
                       behavioral health knowledge, student innovation, and local
@@ -265,8 +254,6 @@ function About() {
 
           <Footer />
         </main>
-      </ScrollArea>
-    </>
   );
 }
 

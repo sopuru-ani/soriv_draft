@@ -6,13 +6,10 @@ import TwoColumnSection from "@/components/TwoColumnSection";
 import MissionBlock from "@/components/MissionBlock";
 import WhyChooseUsBlock from "@/components/WhyChooseUsBlock";
 import CtaStrip from "@/components/CtaStrip";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import { LazyImage } from "@/components/LazyImage";
 
 function Home() {
   return (
-    <>
-      <ScrollArea className="w-full">
         <main className="bg-background">
           <section className="relative overflow-hidden">
             <HeroSection
@@ -45,7 +42,7 @@ function Home() {
 
           <section className="mx-auto max-w-7xl px-4 pb-16 pt-6 lg:grid lg:grid-cols-[280px_minmax(0,1fr)] lg:gap-10">
             <aside className="hidden lg:block">
-              <div className="sticky top-28 space-y-6 rounded-3xl border border-secondary/25 bg-card/80 p-6 shadow-[0_24px_80px_-56px_var(--color-primary)]">
+              <div className="sticky top-28 space-y-6">
                 <h2 className="text-xl font-semibold text-foreground">
                   On this page
                 </h2>
@@ -111,10 +108,7 @@ function Home() {
             </aside>
 
             <article className="space-y-14">
-              <section
-                id="intro"
-                className="scroll-mt-28 rounded-[2rem] border border-secondary/25 bg-card/80 p-8 shadow-[0_22px_66px_-44px_var(--color-primary)]"
-              >
+              <section id="intro" className="scroll-mt-28">
                 <div className="grid gap-8 lg:grid-cols-[1.2fr_0.9fr] lg:items-center">
                   <div>
                     <p className="text-sm font-semibold uppercase tracking-[0.24em] text-primary">
@@ -124,6 +118,7 @@ function Home() {
                       Real talk about opioids, risk, and how to protect your
                       people.
                     </h2>
+                    <div className="mt-6 h-1 max-w-48 rounded-full bg-gradient-to-r from-primary via-secondary to-tertiary" />
                     <p className="mt-6 text-lg leading-8 text-muted-foreground">
                       SOR IV delivers concise, student-friendly guidance so
                       students, friends, and campus communities can recognize
@@ -156,13 +151,11 @@ function Home() {
                 </div>
               </section>
 
-              <section
-                id="why-this-matters"
-                className="scroll-mt-28 rounded-[2rem] border border-secondary/25 bg-card/80 p-8 shadow-[0_22px_66px_-44px_var(--color-primary)]"
-              >
+              <section id="why-this-matters" className="scroll-mt-28">
                 <h2 className="text-3xl font-semibold text-foreground">
                   Why this matters right now
                 </h2>
+                <div className="mt-6 h-1 max-w-48 rounded-full bg-gradient-to-r from-primary via-secondary to-tertiary" />
                 <p className="mt-5 text-lg leading-8 text-muted-foreground">
                   The opioid crisis impacts students, families, and campus
                   communities directly. SOR IV helps people respond with
@@ -171,13 +164,11 @@ function Home() {
                 </p>
               </section>
 
-              <section
-                id="what-are-opioids"
-                className="scroll-mt-28 rounded-[2rem] border border-secondary/25 bg-card/80 p-8 shadow-[0_22px_66px_-44px_var(--color-primary)]"
-              >
+              <section id="what-are-opioids" className="scroll-mt-28">
                 <h2 className="text-3xl font-semibold text-foreground">
                   What are opioids?
                 </h2>
+                <div className="mt-6 h-1 max-w-48 rounded-full bg-gradient-to-r from-primary via-secondary to-tertiary" />
                 <p className="mt-5 text-lg leading-8 text-muted-foreground">
                   Opioids include prescription pain medicines and illegal
                   substances. Misuse can quickly lead to dependence, overdose,
@@ -188,12 +179,13 @@ function Home() {
 
               <section
                 id="signs-and-response"
-                className="scroll-mt-28 grid gap-6 lg:grid-cols-2"
+                className="scroll-mt-28 grid gap-10 lg:grid-cols-2 lg:gap-12"
               >
-                <article className="rounded-[2rem] border border-secondary/25 bg-card/80 p-8 shadow-[0_22px_66px_-44px_var(--color-primary)]">
+                <article>
                   <h2 className="text-3xl font-semibold text-foreground">
                     Opioid misuse signs
                   </h2>
+                  <div className="mt-6 h-1 max-w-48 rounded-full bg-gradient-to-r from-primary via-secondary to-tertiary" />
                   <ul className="mt-5 space-y-3 text-muted-foreground">
                     {[
                       "Unresponsiveness",
@@ -209,10 +201,11 @@ function Home() {
                   </ul>
                 </article>
 
-                <article className="rounded-[2rem] border border-secondary/25 bg-card/80 p-8 shadow-[0_22px_66px_-44px_var(--color-primary)]">
+                <article>
                   <h2 className="text-3xl font-semibold text-foreground">
                     How to respond fast
                   </h2>
+                  <div className="mt-6 h-1 max-w-48 rounded-full bg-gradient-to-r from-primary via-secondary to-tertiary" />
                   <ul className="mt-5 space-y-3 text-muted-foreground">
                     {[
                       "Recognize overdose signs",
@@ -229,10 +222,7 @@ function Home() {
                 </article>
               </section>
 
-              <section
-                id="prevention"
-                className="scroll-mt-28 rounded-[2rem] border border-secondary/25 bg-card/80 p-8 shadow-[0_22px_66px_-44px_var(--color-primary)]"
-              >
+              <section id="prevention" className="scroll-mt-28">
                 <MissionBlock
                   heading="Prevention beats panic."
                   content="Only trust reliable health information sources, take medication exactly as prescribed, and use safe disposal methods for unused medication."
@@ -261,13 +251,14 @@ function Home() {
             id="where-are-you-at"
             className="scroll-mt-28 border-t border-secondary/25 px-4 py-12 md:py-16"
           >
-            <div className="mx-auto max-w-4xl rounded-[2rem] border border-secondary/25 bg-card/80 p-8 shadow-[0_22px_66px_-44px_var(--color-primary)] md:p-12">
+            <div className="mx-auto max-w-4xl">
               <p className="text-sm font-semibold uppercase tracking-[0.24em] text-primary">
                 Self-check
               </p>
               <h2 className="mt-4 text-3xl font-semibold text-foreground sm:text-4xl">
                 Where are you at?
               </h2>
+              <div className="mt-6 h-1 max-w-48 rounded-full bg-gradient-to-r from-primary via-secondary to-tertiary" />
               <p className="mt-4 max-w-2xl text-lg leading-8 text-muted-foreground">
                 A short readiness-to-change check: 18 true/false statements
                 about how you feel today. It is a self-reflection tool, not a
@@ -287,8 +278,6 @@ function Home() {
 
           <Footer />
         </main>
-      </ScrollArea>
-    </>
   );
 }
 
