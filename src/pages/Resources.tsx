@@ -1,32 +1,75 @@
-import React from "react";
+import React, { useState } from "react";
 import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
 // import CtaStrip from "@/components/CtaStrip";
 import ResourceSlideshow from "@/components/ResourceSlideshow";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
+const resources = [
+  "/flyer-1.png",
+  "/flyer-2.png",
+  "/flyer-3.png",
+  "/save-a-life.png",
+  "/not-alone.png",
+  "/Fact Sheet Fentanyl.png",
+  "/Recovery.png",
+  "/Support.png",
+];
+
+function filenameFromSrc(src: string) {
+  return decodeURIComponent(src.split("/").pop() || "resource.png");
+}
+
+async function downloadAllResources(urls: string[]) {
+  for (const url of urls) {
+    const response = await fetch(encodeURI(url));
+    if (!response.ok) continue;
+    const blob = await response.blob();
+    const objectUrl = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = objectUrl;
+    link.download = filenameFromSrc(url);
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    URL.revokeObjectURL(objectUrl);
+    // Stagger so the browser doesn't block rapid multi-downloads
+    await new Promise((resolve) => setTimeout(resolve, 250));
+  }
+}
+
 function Resources() {
-  const resources = [
-    "/flyer-1.png",
-    "/flyer-2.png",
-    "/flyer-3.png",
-    "/save-a-life.png",
-    "/not-alone.png",
-  ];
+  const [downloading, setDownloading] = useState(false);
+
+  const handleDownloadAll = async () => {
+    if (downloading) return;
+    setDownloading(true);
+    try {
+      await downloadAllResources(resources);
+    } finally {
+      setDownloading(false);
+    }
+  };
 
   return (
     <>
       <ScrollArea className="w-full">
         <main className="bg-background">
-          {/* Hero Section */}
           <HeroSection
             badge="Resource Library"
             headline="Resources and Flyers"
             description="Browse and share these materials to help students recognize risk, respond quickly, and connect to support."
-            ctaButtons={[{ label: "Download All Resources", isPrimary: true }]}
+            ctaButtons={[
+              {
+                label: downloading
+                  ? "Downloading…"
+                  : "Download All Resources",
+                isPrimary: true,
+                onClick: handleDownloadAll,
+              },
+            ]}
           />
 
-          {/* Resource Layout */}
           <section className="py-12 md:py-16 px-4">
             <div className="mx-auto max-w-7xl">
               <h2 className="text-2xl font-semibold text-foreground mb-8">

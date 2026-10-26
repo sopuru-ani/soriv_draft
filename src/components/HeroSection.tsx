@@ -7,7 +7,8 @@ interface HeroSectionProps {
   ctaButtons?: Array<{
     label: string;
     isPrimary?: boolean;
-    href?: string; // <-- use href instead of onClick
+    href?: string;
+    onClick?: () => void;
   }>;
   backgroundImageUrl?: string;
 }
@@ -71,6 +72,25 @@ function HeroSection({
           {ctaButtons.length > 0 && (
             <div className="mt-8 flex flex-wrap items-center gap-3">
               {ctaButtons.map((btn, idx) => {
+                const className = `rounded-lg px-6 py-3 text-sm font-semibold transition-all duration-300 inline-block cursor-pointer ${
+                  btn.isPrimary
+                    ? "bg-primary text-primary-foreground hover:-translate-y-0.5 shadow-[0_12px_28px_-16px_var(--color-primary)]"
+                    : "border border-secondary/45 bg-background/70 text-primary hover:border-secondary hover:bg-background"
+                }`;
+
+                if (btn.onClick) {
+                  return (
+                    <button
+                      key={idx}
+                      type="button"
+                      onClick={btn.onClick}
+                      className={className}
+                    >
+                      {btn.label}
+                    </button>
+                  );
+                }
+
                 const isExternal = /^https?:\/\//i.test(btn.href ?? "");
                 return (
                   <a
@@ -79,11 +99,7 @@ function HeroSection({
                     {...(isExternal
                       ? { target: "_blank", rel: "noopener noreferrer" }
                       : {})}
-                    className={`rounded-lg px-6 py-3 text-sm font-semibold transition-all duration-300 inline-block ${
-                      btn.isPrimary
-                        ? "bg-primary text-primary-foreground hover:-translate-y-0.5 shadow-[0_12px_28px_-16px_var(--color-primary)]"
-                        : "border border-secondary/45 bg-background/70 text-primary hover:border-secondary hover:bg-background"
-                    }`}
+                    className={className}
                   >
                     {btn.label}
                   </a>
