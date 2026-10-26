@@ -1,13 +1,11 @@
 import React, { useState } from "react";
-import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
-/* Reusable Image with Fallback */
 type ProfileImageProps = {
-  src?: string; // optional, since it might not exist
-  name: string; // required (used for initials + alt)
+  src?: string;
+  name: string;
 };
 
 function ProfileImage({ src, name }: ProfileImageProps) {
@@ -20,16 +18,16 @@ function ProfileImage({ src, name }: ProfileImageProps) {
     .join("");
 
   return (
-    <div className="overflow-hidden rounded-[1.75rem] bg-slate-950 shadow-[0_14px_40px_-30px_rgba(0,0,0,0.4)]">
+    <div className="aspect-square w-full self-start overflow-hidden rounded-xl bg-muted shadow-[0_0_16px_rgba(10,10,10,0.14)]">
       {!error && src ? (
         <img
           src={src}
           alt={name}
           onError={() => setError(true)}
-          className="aspect-4/5 w-full h-full object-cover"
+          className="h-full w-full object-cover object-top"
         />
       ) : (
-        <div className="aspect-4/5 flex items-center justify-center bg-linear-to-br from-primary/80 via-secondary/80 to-primary/40 text-7xl font-black uppercase tracking-[0.16em] text-white">
+        <div className="flex h-full w-full items-center justify-center text-2xl font-semibold tracking-wide text-primary">
           {initials}
         </div>
       )}
@@ -37,107 +35,118 @@ function ProfileImage({ src, name }: ProfileImageProps) {
   );
 }
 
+type PersonCardProps = {
+  src?: string;
+  name: string;
+  title: string;
+  department: string;
+  children: React.ReactNode;
+};
+
+function PersonRow({ src, name, title, department, children }: PersonCardProps) {
+  return (
+    <div className="grid items-start gap-6 border-b border-border py-10 last:border-b-0 md:grid-cols-[160px_minmax(0,1fr)] md:gap-10">
+      <ProfileImage src={src} name={name} />
+      <div className="flex flex-col justify-center">
+        <h2 className="text-xl font-semibold text-foreground md:text-2xl">
+          {name}
+        </h2>
+        <div className="mt-3 h-1 max-w-24 rounded-full bg-gradient-to-r from-primary via-secondary to-tertiary" />
+        <p className="mt-4 text-sm font-medium text-primary">{title}</p>
+        <p className="mt-1 text-sm text-muted-foreground">{department}</p>
+        <div className="mt-5 space-y-1.5 text-sm text-muted-foreground">
+          {children}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function Contact() {
   return (
     <>
-      <Nav />
-
       <ScrollArea className="w-full">
         <main className="bg-background">
           <HeroSection
-            badge="SORIV Team"
+            badge="SOR IV Team"
             headline="Meet the Team"
-            description="Contact our leadership and program support staff to learn more about the SORIV initiative, partnerships, and student services."
+            description="Contact our leadership and program support staff to learn more about the SOR IV initiative, partnerships, and student services."
           />
 
-          <section className="py-12 md:py-16 px-4">
-            <div className="mx-auto max-w-7xl space-y-10">
-              {/* Contact 1 */}
-              <div className="grid gap-6 rounded-[2rem] border border-secondary/25 bg-card/60 p-6 shadow-[0_22px_60px_-40px_var(--color-primary)] md:grid-cols-[minmax(280px,34%)_1fr] md:p-8">
-                <ProfileImage
-                  src="/DrKimberlyPooleSykes.webp"
-                  name="Dr. Kimberly Poole-Sykes"
-                />
+          <section className="px-4 py-12 md:py-16">
+            <div className="mx-auto max-w-3xl">
+              <PersonRow
+                src="/Kimberly Poole-Sykes _pp.jpg"
+                name="Dr. Kimberly Poole-Sykes"
+                title="Chair and Professor"
+                department="Department of Education"
+              >
+                <p>
+                  <span className="font-medium text-foreground">Phone:</span>{" "}
+                  <a
+                    href="tel:4106516220"
+                    className="hover:text-primary transition-colors"
+                  >
+                    410-651-6220
+                  </a>
+                </p>
+                <p>
+                  <span className="font-medium text-foreground">Email:</span>{" "}
+                  <a
+                    href="mailto:Kjpoolesykes@umes.edu"
+                    className="hover:text-primary transition-colors"
+                  >
+                    Kjpoolesykes@umes.edu
+                  </a>
+                </p>
+              </PersonRow>
 
-                <div className="rounded-[1.75rem] bg-secondary/95 p-8 text-white shadow-[0_18px_40px_-30px_rgba(0,0,0,0.4)]">
-                  <h2 className="text-3xl font-semibold">
-                    Dr. Kimberly Poole-Sykes
-                  </h2>
-                  <p className="mt-2 text-sm font-semibold text-primary">
-                    Chair and Professor
-                  </p>
-                  <p className="mt-1 text-sm text-white/80">
-                    Department of Education
-                  </p>
+              <PersonRow
+                src="/Dr.Lakeisha-Harris.webp"
+                name="LaKeisha Harris, Ph.D., CRC"
+                title="Dean"
+                department="Graduate Studies"
+              >
+                <p>
+                  <span className="font-medium text-foreground">Phone:</span>{" "}
+                  <a
+                    href="tel:4106516080"
+                    className="hover:text-primary transition-colors"
+                  >
+                    410-651-6080
+                  </a>
+                </p>
+                <p>
+                  <span className="font-medium text-foreground">Fax:</span>{" "}
+                  410-651-7571
+                </p>
+                <p>
+                  <span className="font-medium text-foreground">Email:</span>{" "}
+                  <a
+                    href="mailto:llharris@umes.edu"
+                    className="hover:text-primary transition-colors"
+                  >
+                    llharris@umes.edu
+                  </a>
+                </p>
+              </PersonRow>
 
-                  <div className="mt-8 space-y-2 text-sm">
-                    <p>
-                      <strong>Phone:</strong>{" "}
-                      <a href="tel:4106516220">410-651-6220</a>
-                    </p>
-                    <p>
-                      <strong>Email:</strong>{" "}
-                      <a href="mailto:Kjpoolesykes@umes.edu">
-                        Kjpoolesykes@umes.edu
-                      </a>
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Contact 2 */}
-              <div className="grid gap-6 rounded-[2rem] border border-secondary/25 bg-card/60 p-6 shadow-[0_22px_60px_-40px_var(--color-primary)] md:grid-cols-[minmax(280px,34%)_1fr] md:p-8">
-                <ProfileImage
-                  src="/Dr.Lakeisha-Harris.webp"
-                  name="LaKeisha Harris, Ph.D., CRC"
-                />
-
-                <div className="rounded-[1.75rem] bg-secondary/95 p-8 text-white shadow-[0_18px_40px_-30px_rgba(0,0,0,0.4)]">
-                  <h2 className="text-3xl font-semibold">
-                    LaKeisha Harris, Ph.D., CRC
-                  </h2>
-                  <p className="mt-2 text-sm font-semibold text-primary">
-                    Dean
-                  </p>
-                  <p className="mt-1 text-sm text-white/80">Graduate Studies</p>
-
-                  <div className="mt-8 space-y-2 text-sm">
-                    <p>
-                      <strong>Phone:</strong>{" "}
-                      <a href="tel:4106516080">410-651-6080</a>
-                    </p>
-                    <p>
-                      <strong>Fax:</strong> 410-651-7571
-                    </p>
-                    <p>
-                      <strong>Email:</strong>{" "}
-                      <a href="mailto:llharris@umes.edu">llharris@umes.edu</a>
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Contact 3 */}
-              <div className="grid gap-6 rounded-[2rem] border border-secondary/25 bg-card/60 p-6 shadow-[0_22px_60px_-40px_var(--color-primary)] md:grid-cols-[minmax(280px,34%)_1fr] md:p-8">
-                <ProfileImage src="/images/cooper.jpg" name="Angel Cooper" />
-
-                <div className="rounded-[1.75rem] bg-secondary/95 p-8 text-white shadow-[0_18px_40px_-30px_rgba(0,0,0,0.4)]">
-                  <h2 className="text-3xl font-semibold">Angel Cooper</h2>
-                  <p className="mt-2 text-sm font-semibold text-primary">
-                    M.S. Rehabilitation Counseling
-                  </p>
-                  <p className="mt-1 text-sm text-white/80">
-                    Counselor Education Program
-                  </p>
-
-                  <div className="mt-8 space-y-2 text-sm">
-                    <p>
-                      <strong>Email:</strong>{" "}
-                      <a href="mailto:ancooper1@umes.edu">ancooper1@umes.edu</a>
-                    </p>
-                  </div>
-                </div>
-              </div>
+              <PersonRow
+                src="/Angel Cooper Headshot.jpeg"
+                name="Angel Cooper"
+                title="M.S. Rehabilitation Counseling"
+                department="Counselor Education Program"
+              >
+                <p>
+                  <span className="font-medium text-foreground">Email:</span>{" "}
+                  <a
+                    href="mailto:ancooper1@umes.edu"
+                    className="hover:text-primary transition-colors"
+                  >
+                    ancooper1@umes.edu
+                  </a>
+                </p>
+              </PersonRow>
             </div>
           </section>
 

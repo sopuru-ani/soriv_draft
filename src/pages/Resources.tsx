@@ -1,10 +1,9 @@
 import React from "react";
-import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
-import CtaStrip from "@/components/CtaStrip";
+// import CtaStrip from "@/components/CtaStrip";
+import ResourceSlideshow from "@/components/ResourceSlideshow";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { LazyImage } from "@/components/LazyImage";
 
 function Resources() {
   const resources = [
@@ -17,8 +16,6 @@ function Resources() {
 
   return (
     <>
-      <Nav />
-
       <ScrollArea className="w-full">
         <main className="bg-background">
           {/* Hero Section */}
@@ -35,95 +32,39 @@ function Resources() {
               <h2 className="text-2xl font-semibold text-foreground mb-8">
                 Featured Flyers & Materials
               </h2>
-              <div className="grid gap-8">
-                {resources.map((src) => (
-                  <div
-                    key={src}
-                    className="overflow-hidden rounded-[2rem] border border-secondary/25 bg-card/80 p-4 shadow-[0_20px_60px_-40px_var(--color-primary)]"
-                  >
-                    <LazyImage
-                      src={src}
-                      alt="SORIV resource flyer"
-                      wrapperClassName="w-full"
-                      className="w-full object-contain"
-                    />
-                  </div>
-                ))}
-              </div>
+              <ResourceSlideshow images={resources} />
             </div>
           </section>
 
-          {/* CTA: Custom Resources */}
+          {/* CTA: Custom Resources — parked for now
           <CtaStrip
             statement="Need a custom resource for your campus event or training?"
-            buttonLabel="Email the SORIV team"
+            buttonLabel="Email the SOR IV team"
             buttonHref="mailto:soriv@umes.edu"
           />
+          */}
 
-          {/* Additional Resources Section */}
-          <section className="py-12 md:py-16 px-4 border-t border-secondary/25">
+          <section className="border-t border-border px-4 py-12 md:py-16">
             <div className="mx-auto max-w-7xl">
-              <div className="grid gap-6">
-                <div className="rounded-xl border border-secondary/25 bg-card/80 p-6">
-                  <h3 className="text-xl font-semibold text-foreground">
-                    External Resources
-                  </h3>
-                  <ul className="mt-4 space-y-3 text-muted-foreground">
-                    <li>
-                      <a href="#" className="text-primary hover:underline">
-                        SAMHSA National Helpline
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" className="text-primary hover:underline">
-                        Naloxone Distribution Sites
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" className="text-primary hover:underline">
-                        Recovery Support Services
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" className="text-primary hover:underline">
-                        Educational Webinars
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-
-                <div className="rounded-xl border border-secondary/25 bg-card/80 p-6">
-                  <h3 className="text-xl font-semibold text-foreground">
-                    Quick Reference
-                  </h3>
-                  <ul className="mt-4 space-y-3 text-muted-foreground">
-                    <li>
-                      <a href="#" className="text-primary hover:underline">
-                        Overdose Response Guide
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" className="text-primary hover:underline">
-                        Naloxone How-To
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" className="text-primary hover:underline">
-                        Campus Resources Directory
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" className="text-primary hover:underline">
-                        Student Peer Support Network
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
+              <h2 className="text-2xl font-semibold text-foreground">
+                External Resources
+              </h2>
+              <div className="mt-6 h-1 max-w-48 rounded-full bg-gradient-to-r from-primary via-secondary to-tertiary" />
+              <ul className="mt-6 space-y-3 text-sm">
+                <li>
+                  <a
+                    href="https://website-media.com/somerset-county-health-departmetn/somerset-co-health-dept-2024/2026/03/20155301/March-2026-Tri-County-Resource-Guide.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary transition-colors hover:text-secondary"
+                  >
+                    March 2026 Tri-County Resource Guide (PDF)
+                  </a>
+                </li>
+              </ul>
             </div>
           </section>
 
-          {/* Footer */}
           <Footer />
         </main>
       </ScrollArea>

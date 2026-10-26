@@ -1,36 +1,34 @@
 import React from "react";
-import Nav from "@/components/Nav";
+import { Link } from "react-router-dom";
 import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
 import TwoColumnSection from "@/components/TwoColumnSection";
 import MissionBlock from "@/components/MissionBlock";
 import WhyChooseUsBlock from "@/components/WhyChooseUsBlock";
 import CtaStrip from "@/components/CtaStrip";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import { LazyImage } from "@/components/LazyImage";
 
 function Home() {
   return (
-    <>
-      <Nav />
-      <ScrollArea className="w-full">
         <main className="bg-background">
           <section className="relative overflow-hidden">
             <HeroSection
-              badge="SORIV Education Hub"
+              badge="SOR IV Education Hub"
               headline="Real talk about opioids, risk, and how to protect your people."
               description="Quick, clear, and student-friendly info for spotting warning signs early, reducing harm, and getting support fast on campus and in your community."
               backgroundImageUrl="/drugneedle.jpg"
               ctaButtons={[
-                { label: "Explore Resources", isPrimary: true },
+                { label: "Explore Resources", isPrimary: true, href: "/resources" },
                 {
                   label: "Take the Survey",
                   isPrimary: false,
-                  href: "https://forms.cloud.microsoft/r/AbAbkgpjHP?origin=lprLink",
+                  href: "/survey",
+                  // Microsoft Form (parked):
+                  // href: "https://forms.cloud.microsoft/r/AbAbkgpjHP?origin=lprLink",
                 },
               ]}
             />
-            <div className="mx-auto max-w-7xl px-4 pb-8 text-sm text-muted-foreground">
+            <div className="mx-auto max-w-7xl px-4 pt-8 pb-8 text-sm text-muted-foreground">
               <nav className="flex flex-wrap gap-2 text-xs uppercase tracking-[0.22em]">
                 <a
                   href="/"
@@ -46,7 +44,7 @@ function Home() {
 
           <section className="mx-auto max-w-7xl px-4 pb-16 pt-6 lg:grid lg:grid-cols-[280px_minmax(0,1fr)] lg:gap-10">
             <aside className="hidden lg:block">
-              <div className="sticky top-28 space-y-6 rounded-3xl border border-secondary/25 bg-card/80 p-6 shadow-[0_24px_80px_-56px_var(--color-primary)]">
+              <div className="sticky top-28 space-y-6">
                 <h2 className="text-xl font-semibold text-foreground">
                   On this page
                 </h2>
@@ -93,10 +91,18 @@ function Home() {
                   </li>
                   <li>
                     <a
-                      href="#why-soriv-matters"
+                      href="#why-sor-iv-matters"
                       className="block rounded-xl px-3 py-2 text-foreground hover:bg-secondary/10 hover:text-primary"
                     >
-                      Why SORIV Matters
+                      Why SOR IV Matters
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#where-are-you-at"
+                      className="block rounded-xl px-3 py-2 text-foreground hover:bg-secondary/10 hover:text-primary"
+                    >
+                      Where Are You At?
                     </a>
                   </li>
                 </ul>
@@ -104,21 +110,19 @@ function Home() {
             </aside>
 
             <article className="space-y-14">
-              <section
-                id="intro"
-                className="scroll-mt-28 rounded-[2rem] border border-secondary/25 bg-card/80 p-8 shadow-[0_22px_66px_-44px_var(--color-primary)]"
-              >
+              <section id="intro" className="scroll-mt-28">
                 <div className="grid gap-8 lg:grid-cols-[1.2fr_0.9fr] lg:items-center">
                   <div>
                     <p className="text-sm font-semibold uppercase tracking-[0.24em] text-primary">
-                      Discover SORIV
+                      Discover SOR IV
                     </p>
                     <h2 className="mt-4 text-4xl font-semibold text-foreground sm:text-5xl">
                       Real talk about opioids, risk, and how to protect your
                       people.
                     </h2>
+                    <div className="mt-6 h-1 max-w-48 rounded-full bg-gradient-to-r from-primary via-secondary to-tertiary" />
                     <p className="mt-6 text-lg leading-8 text-muted-foreground">
-                      SORIV delivers concise, student-friendly guidance so
+                      SOR IV delivers concise, student-friendly guidance so
                       students, friends, and campus communities can recognize
                       warning signs early and act quickly to reduce harm.
                     </p>
@@ -149,28 +153,24 @@ function Home() {
                 </div>
               </section>
 
-              <section
-                id="why-this-matters"
-                className="scroll-mt-28 rounded-[2rem] border border-secondary/25 bg-card/80 p-8 shadow-[0_22px_66px_-44px_var(--color-primary)]"
-              >
+              <section id="why-this-matters" className="scroll-mt-28">
                 <h2 className="text-3xl font-semibold text-foreground">
                   Why this matters right now
                 </h2>
+                <div className="mt-6 h-1 max-w-48 rounded-full bg-gradient-to-r from-primary via-secondary to-tertiary" />
                 <p className="mt-5 text-lg leading-8 text-muted-foreground">
                   The opioid crisis impacts students, families, and campus
-                  communities directly. SORIV helps people respond with
+                  communities directly. SOR IV helps people respond with
                   confidence, connect to support, and reduce the risk of harm
                   before it becomes a tragedy.
                 </p>
               </section>
 
-              <section
-                id="what-are-opioids"
-                className="scroll-mt-28 rounded-[2rem] border border-secondary/25 bg-card/80 p-8 shadow-[0_22px_66px_-44px_var(--color-primary)]"
-              >
+              <section id="what-are-opioids" className="scroll-mt-28">
                 <h2 className="text-3xl font-semibold text-foreground">
                   What are opioids?
                 </h2>
+                <div className="mt-6 h-1 max-w-48 rounded-full bg-gradient-to-r from-primary via-secondary to-tertiary" />
                 <p className="mt-5 text-lg leading-8 text-muted-foreground">
                   Opioids include prescription pain medicines and illegal
                   substances. Misuse can quickly lead to dependence, overdose,
@@ -181,12 +181,13 @@ function Home() {
 
               <section
                 id="signs-and-response"
-                className="scroll-mt-28 grid gap-6 lg:grid-cols-2"
+                className="scroll-mt-28 grid gap-10 lg:grid-cols-2 lg:gap-12"
               >
-                <article className="rounded-[2rem] border border-secondary/25 bg-card/80 p-8 shadow-[0_22px_66px_-44px_var(--color-primary)]">
+                <article>
                   <h2 className="text-3xl font-semibold text-foreground">
                     Opioid misuse signs
                   </h2>
+                  <div className="mt-6 h-1 max-w-48 rounded-full bg-gradient-to-r from-primary via-secondary to-tertiary" />
                   <ul className="mt-5 space-y-3 text-muted-foreground">
                     {[
                       "Unresponsiveness",
@@ -202,10 +203,11 @@ function Home() {
                   </ul>
                 </article>
 
-                <article className="rounded-[2rem] border border-secondary/25 bg-card/80 p-8 shadow-[0_22px_66px_-44px_var(--color-primary)]">
+                <article>
                   <h2 className="text-3xl font-semibold text-foreground">
                     How to respond fast
                   </h2>
+                  <div className="mt-6 h-1 max-w-48 rounded-full bg-gradient-to-r from-primary via-secondary to-tertiary" />
                   <ul className="mt-5 space-y-3 text-muted-foreground">
                     {[
                       "Recognize overdose signs",
@@ -222,10 +224,7 @@ function Home() {
                 </article>
               </section>
 
-              <section
-                id="prevention"
-                className="scroll-mt-28 rounded-[2rem] border border-secondary/25 bg-card/80 p-8 shadow-[0_22px_66px_-44px_var(--color-primary)]"
-              >
+              <section id="prevention" className="scroll-mt-28">
                 <MissionBlock
                   heading="Prevention beats panic."
                   content="Only trust reliable health information sources, take medication exactly as prescribed, and use safe disposal methods for unused medication."
@@ -234,11 +233,11 @@ function Home() {
               </section>
 
               <section
-                id="why-soriv-matters"
+                id="why-sor-iv-matters"
                 className="scroll-mt-28 space-y-6"
               >
                 <WhyChooseUsBlock
-                  heading="Why SORIV Matters"
+                  heading="Why SOR IV Matters"
                   subheading="Supporting your health and safety every step of the way"
                   items={[
                     "Provides easy access to relevant behavioral health resources.",
@@ -250,10 +249,37 @@ function Home() {
             </article>
           </section>
 
+          <section
+            id="where-are-you-at"
+            className="scroll-mt-28 border-t border-secondary/25 px-4 py-12 md:py-16"
+          >
+            <div className="mx-auto max-w-4xl">
+              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-primary">
+                Self-check
+              </p>
+              <h2 className="mt-4 text-3xl font-semibold text-foreground sm:text-4xl">
+                Where are you at?
+              </h2>
+              <div className="mt-6 h-1 max-w-48 rounded-full bg-gradient-to-r from-primary via-secondary to-tertiary" />
+              <p className="mt-4 max-w-2xl text-lg leading-8 text-muted-foreground">
+                A short readiness-to-change check: 18 true/false statements
+                about how you feel today. It is a self-reflection tool, not a
+                diagnosis, and your answers stay in your browser for now.
+              </p>
+              <p className="mt-3 text-sm font-medium text-foreground">
+                Takes about 3–5 minutes.
+              </p>
+              <Link
+                to="/where-are-you-at"
+                className="mt-8 inline-flex rounded-lg bg-primary px-8 py-3 font-semibold text-primary-foreground shadow-[0_12px_28px_-16px_var(--color-primary)] transition-all duration-300 hover:-translate-y-0.5"
+              >
+                Where are you at?
+              </Link>
+            </div>
+          </section>
+
           <Footer />
         </main>
-      </ScrollArea>
-    </>
   );
 }
 
